@@ -1,0 +1,868 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact | MoticAfrica</title>
+
+    <link rel="stylesheet"
+          href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet"
+          href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}">
+
+    <link rel="stylesheet"
+          href="{% static 'assets/css/style.css' %}">
+
+    <style>
+
+        :root {
+            --yellow: #f5a800;
+            --orange: #f05a28;
+            --red: #d93424;
+            --green: #16784a;
+            --black: #171717;
+            --cream: #fff9ed;
+            --cream2: #fff3d6;
+            --white: #ffffff;
+            --text: #252525;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--cream);
+            color: var(--text);
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .motic-navbar {
+            background: var(--black);
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(0,0,0,.15);
+        }
+
+        .brand {
+            font-size: 30px;
+            font-weight: 900;
+            text-decoration: none;
+            color: var(--yellow);
+            letter-spacing: -1px;
+        }
+
+        .brand span {
+            color: white;
+        }
+
+        .nav-link {
+            color: white !important;
+            font-weight: 600;
+            margin-left: 22px;
+            transition: .3s;
+        }
+
+        .nav-link:hover {
+            color: var(--yellow) !important;
+        }
+
+        .register-btn {
+            background: var(--yellow);
+            color: var(--black) !important;
+            padding: 10px 20px !important;
+            border-radius: 30px;
+            margin-left: 25px !important;
+        }
+
+        .register-btn:hover {
+            background: var(--orange);
+            color: white !important;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .contact-hero {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(circle at 15% 20%,
+                rgba(255,255,255,.22),
+                transparent 25%),
+
+                radial-gradient(circle at 85% 70%,
+                rgba(255,255,255,.18),
+                transparent 25%),
+
+                linear-gradient(
+                    135deg,
+                    var(--yellow),
+                    var(--orange),
+                    var(--red)
+                );
+        }
+
+        .contact-hero::before {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            border: 70px solid rgba(255,255,255,.08);
+            top: -180px;
+            right: -100px;
+        }
+
+        .contact-hero::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.08);
+            bottom: -160px;
+            left: -80px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+            margin: auto;
+            padding: 70px 20px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0,0,0,.25);
+            color: white;
+            padding: 9px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            backdrop-filter: blur(8px);
+        }
+
+        .contact-hero h1 {
+            font-size: clamp(48px, 7vw, 82px);
+            font-weight: 900;
+            color: white;
+            line-height: .95;
+            margin-bottom: 25px;
+            text-shadow: 0 5px 15px rgba(0,0,0,.15);
+        }
+
+        .contact-hero h1 span {
+            color: var(--black);
+        }
+
+        .contact-hero p {
+            color: white;
+            font-size: 21px;
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           CONTACT CARDS
+        ========================= */
+
+        .contact-area {
+            padding: 90px 20px;
+            background: var(--cream);
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-heading .small-title {
+            color: var(--orange);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-heading h2 {
+            font-size: 45px;
+            font-weight: 900;
+            color: var(--black);
+            margin-top: 8px;
+        }
+
+        .section-heading p {
+            color: #707070;
+            font-size: 17px;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 25px;
+            padding: 40px 30px;
+            text-align: center;
+            height: 100%;
+            border: 1px solid #ece8df;
+            box-shadow: 0 15px 40px rgba(23,23,23,.08);
+            transition: .35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: "";
+            position: absolute;
+            height: 6px;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background: var(--yellow);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 55px rgba(23,23,23,.14);
+        }
+
+        .contact-icon {
+            width: 85px;
+            height: 85px;
+            margin: 5px auto 25px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 36px;
+            box-shadow: 0 12px 25px rgba(0,0,0,.15);
+        }
+
+        .phone-icon {
+            background: linear-gradient(135deg, var(--green), #20a567);
+        }
+
+        .location-icon {
+            background: linear-gradient(135deg, var(--orange), var(--red));
+        }
+
+        .whatsapp-icon {
+            background: #25D366;
+        }
+
+        .contact-card h3 {
+            font-size: 25px;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+
+        .contact-card p {
+            color: #707070;
+            line-height: 1.7;
+            min-height: 55px;
+        }
+
+
+        /* =========================
+           PHONE BUTTON
+        ========================= */
+
+        .phone-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 24px;
+            border-radius: 50px;
+            background: var(--green);
+            color: white;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 18px;
+            transition: .3s;
+        }
+
+        .phone-button:hover {
+            background: var(--black);
+            color: white;
+            transform: scale(1.04);
+        }
+
+
+        /* =========================
+           MAP
+        ========================= */
+
+        .map-section {
+            padding: 0 20px 100px;
+            background: var(--cream);
+        }
+
+        .map-wrapper {
+            background: white;
+            border-radius: 30px;
+            padding: 12px;
+            box-shadow: 0 20px 55px rgba(23,23,23,.12);
+            border: 1px solid #ece8df;
+        }
+
+        .map-heading {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .map-heading h2 {
+            font-size: 38px;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .map-heading p {
+            color: #707070;
+            margin-bottom: 0;
+        }
+
+        .map-container {
+            overflow: hidden;
+            border-radius: 22px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: 0;
+            display: block;
+        }
+
+
+        /* =========================
+           WHATSAPP CTA
+        ========================= */
+
+        .whatsapp-section {
+            padding: 90px 20px;
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--green),
+                    #0f633d
+                );
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-section::before {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            border: 60px solid rgba(255,255,255,.06);
+            right: -150px;
+            top: -180px;
+        }
+
+        .whatsapp-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        .whatsapp-content i {
+            font-size: 65px;
+            margin-bottom: 20px;
+        }
+
+        .whatsapp-content h2 {
+            font-size: 45px;
+            font-weight: 900;
+        }
+
+        .whatsapp-content p {
+            font-size: 18px;
+            opacity: .9;
+            margin: 15px auto 25px;
+        }
+
+        .whatsapp-main-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            color: var(--green);
+            padding: 17px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 19px;
+            font-weight: 900;
+            transition: .3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,.2);
+        }
+
+        .whatsapp-main-button:hover {
+            transform: translateY(-5px) scale(1.03);
+            color: var(--green);
+            box-shadow: 0 15px 35px rgba(0,0,0,.3);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: var(--black);
+            color: white;
+            padding: 35px 20px;
+            text-align: center;
+        }
+
+        footer .footer-brand {
+            color: var(--yellow);
+            font-size: 25px;
+            font-weight: 900;
+        }
+
+        footer p {
+            margin: 8px 0 0;
+            color: #ccc;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .contact-hero {
+                min-height: 430px;
+            }
+
+            .contact-hero h1 {
+                font-size: 50px;
+            }
+
+            .contact-hero p {
+                font-size: 17px;
+            }
+
+            .section-heading h2 {
+                font-size: 35px;
+            }
+
+            .map-heading h2 {
+                font-size: 30px;
+            }
+
+            .whatsapp-content h2 {
+                font-size: 35px;
+            }
+
+            .map-container iframe {
+                height: 350px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header class="motic-navbar">
+
+    <div class="container">
+
+        <nav class="navbar navbar-expand-lg">
+
+            <a href="{% url 'index' %}" class="brand">
+                Motic<span>Africa</span>
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar">
+
+                <i class="bi bi-list text-white fs-2"></i>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavbar">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{% url 'index' %}">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{% url 'about' %}">
+                            About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{% url 'teams' %}">
+                            Teams
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{% url 'battle' %}">
+                            Battle
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{% url 'gallery' %}">
+                            Gallery
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{% url 'tickets' %}">
+                            Tickets
+                        </a>
+                    </li>
+
+
+
+
+
+
+
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link register-btn"
+                           href="{% url 'team_registration' %}">
+                            Register Your Team
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="contact-hero">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                <i class="bi bi-telephone-fill"></i>
+                &nbsp; LET'S CONNECT
+            </div>
+
+            <h1>
+                Talk To <span>MoticAfrica</span>
+            </h1>
+
+            <p>
+                Whether you're joining the Kenya Mega Choma Battle,
+                registering your team, or simply want to know more —
+                we're only one call away.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT CARDS
+========================= -->
+
+<section class="contact-area">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="small-title">
+                CONTACT US
+            </div>
+
+            <h2>
+                We're Here For You
+            </h2>
+
+            <p>
+                Reach us quickly using any of the options below.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- PHONE -->
+
+            <div class="col-lg-4">
+
+                <div class="contact-card">
+
+                    <div class="contact-icon phone-icon">
+                        <i class="bi bi-telephone-fill"></i>
+                    </div>
+
+                    <h3>
+                        Call Us
+                    </h3>
+
+                    <p>
+                        Speak directly with the
+                        MoticAfrica team.
+                    </p>
+
+                    <a href="tel:0796004220"
+                       class="phone-button">
+
+                        <i class="bi bi-telephone-fill"></i>
+
+                        0796 004 220
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- LOCATION -->
+
+            <div class="col-lg-4">
+
+                <div class="contact-card">
+
+                    <div class="contact-icon location-icon">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+
+                    <h3>
+                        Find Us
+                    </h3>
+
+                    <p>
+                        View our location and
+                        get directions.
+                    </p>
+
+                    <a href="#map"
+                       class="phone-button"
+                       style="background: var(--orange);">
+
+                        <i class="bi bi-map-fill"></i>
+
+                        View Map
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- WHATSAPP -->
+
+            <div class="col-lg-4">
+
+                <div class="contact-card">
+
+                    <div class="contact-icon whatsapp-icon">
+                        <i class="bi bi-whatsapp"></i>
+                    </div>
+
+                    <h3>
+                        WhatsApp
+                    </h3>
+
+                    <p>
+                        Send us a message directly
+                        through WhatsApp.
+                    </p>
+
+                    <a
+                        href="https://wa.me/254796004220"
+                        target="_blank"
+                        class="phone-button"
+                        style="background:#25D366;">
+
+                        <i class="bi bi-whatsapp"></i>
+
+                        Chat With Us
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MAP
+========================= -->
+
+<section class="map-section" id="map">
+
+    <div class="container">
+
+        <div class="map-wrapper">
+
+            <div class="map-heading">
+
+                <h2>
+                    <i class="bi bi-geo-alt-fill"
+                       style="color:var(--orange);"></i>
+
+                    Find MoticAfrica
+                </h2>
+
+                <p>
+                    Come join the experience.
+                </p>
+
+            </div>
+
+            <div class="map-container">
+
+                <iframe
+                    src="https://www.google.com/maps?q=Murang'a,Kenya&output=embed"
+                    loading="lazy"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     WHATSAPP CTA
+========================= -->
+
+<section class="whatsapp-section">
+
+    <div class="container">
+
+        <div class="whatsapp-content">
+
+            <i class="bi bi-whatsapp"></i>
+
+            <h2>
+                Let's Talk On WhatsApp
+            </h2>
+
+            <p>
+                Got a question? Need information about
+                registration or the event?
+                Message us directly.
+            </p>
+
+            <a
+                href="https://wa.me/254796004220"
+                target="_blank"
+                class="whatsapp-main-button">
+
+                <i class="bi bi-whatsapp"></i>
+
+                WhatsApp 0796 004 220
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-brand">
+        MoticAfrica
+    </div>
+
+    <p>
+        Kenya Mega Choma Battle
+    </p>
+
+    <p>
+        © 2026 MoticAfrica. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}">
+</script>
+
+</body>
+
+</html>
+```

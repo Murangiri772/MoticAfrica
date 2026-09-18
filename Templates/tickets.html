@@ -1,0 +1,1030 @@
+
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Tickets | MoticAfrica</title>
+
+    <meta name="description"
+          content="Get your tickets for the Kenya Mega Choma Battle at KICC Nairobi.">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #050505;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 18px 7%;
+
+            background: rgba(5, 5, 5, 0.96);
+
+            border-bottom: 1px solid rgba(255, 193, 7, 0.15);
+
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            text-decoration: none;
+
+            font-size: 26px;
+            font-weight: 900;
+
+            color: #ffc107;
+
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #fff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ddd;
+
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #ffc107;
+        }
+
+        .menu-btn {
+            display: none;
+
+            color: #ffc107;
+
+            font-size: 25px;
+
+            cursor: pointer;
+        }
+
+
+        /* HERO */
+
+        .hero {
+            min-height: 52vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 90px 7% 70px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(255, 193, 7, 0.15),
+                    transparent 55%
+                );
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .badge {
+            display: inline-block;
+
+            padding: 9px 18px;
+
+            border: 1px solid #ffc107;
+
+            border-radius: 30px;
+
+            color: #ffc107;
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 85px);
+
+            line-height: .95;
+
+            text-transform: uppercase;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #ffc107;
+        }
+
+        .hero p {
+            color: #aaa;
+
+            max-width: 650px;
+
+            margin: auto;
+
+            line-height: 1.8;
+
+            font-size: 17px;
+        }
+
+
+        /* LOCATION */
+
+        .location {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            margin-top: 25px;
+
+            color: #ffc107;
+
+            font-weight: 700;
+        }
+
+
+        /* TICKETS */
+
+        .tickets-section {
+            padding: 80px 7%;
+        }
+
+        .section-heading {
+            text-align: center;
+
+            margin-bottom: 55px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(30px, 5vw, 52px);
+
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
+        }
+
+        .section-heading h2 span {
+            color: #ffc107;
+        }
+
+        .section-heading p {
+            color: #888;
+        }
+
+
+        .tickets-grid {
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        /* TICKET CARD */
+
+        .ticket-card {
+            position: relative;
+
+            background: #101010;
+
+            border: 1px solid #262626;
+
+            border-radius: 22px;
+
+            padding: 40px 30px;
+
+            text-align: center;
+
+            overflow: hidden;
+
+            transition: .4s;
+        }
+
+        .ticket-card:hover {
+            transform: translateY(-10px);
+
+            border-color: #ffc107;
+
+            box-shadow:
+                0 20px 50px rgba(255, 193, 7, .12);
+        }
+
+
+        .ticket-card.featured {
+            border: 2px solid #ffc107;
+
+            transform: scale(1.03);
+        }
+
+        .ticket-card.featured:hover {
+            transform: scale(1.03) translateY(-10px);
+        }
+
+
+        .popular {
+            position: absolute;
+
+            top: 18px;
+            right: -35px;
+
+            width: 150px;
+
+            padding: 7px;
+
+            background: #ffc107;
+
+            color: #000;
+
+            font-size: 11px;
+
+            font-weight: 900;
+
+            transform: rotate(45deg);
+
+            text-transform: uppercase;
+        }
+
+
+        .ticket-icon {
+            width: 70px;
+            height: 70px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin: 0 auto 25px;
+
+            border-radius: 50%;
+
+            background: rgba(255, 193, 7, .1);
+
+            color: #ffc107;
+
+            font-size: 28px;
+        }
+
+
+        .ticket-card h3 {
+            font-size: 27px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+        }
+
+
+        .price {
+            font-size: 45px;
+
+            font-weight: 900;
+
+            color: #ffc107;
+
+            margin-bottom: 8px;
+        }
+
+        .price small {
+            font-size: 15px;
+
+            color: #888;
+
+            font-weight: 500;
+        }
+
+
+        .ticket-description {
+            color: #888;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            margin-bottom: 28px;
+        }
+
+
+        .features {
+            list-style: none;
+
+            text-align: left;
+
+            margin-bottom: 30px;
+        }
+
+        .features li {
+            display: flex;
+
+            gap: 10px;
+
+            align-items: center;
+
+            margin-bottom: 13px;
+
+            color: #ccc;
+
+            font-size: 14px;
+        }
+
+        .features i {
+            color: #ffc107;
+        }
+
+
+        .ticket-btn {
+            width: 100%;
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            padding: 15px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            font-weight: 800;
+
+            background: #ffc107;
+
+            color: #000;
+
+            transition: .3s;
+        }
+
+        .ticket-btn:hover {
+            background: #fff;
+
+            transform: translateY(-2px);
+        }
+
+
+        .ticket-card.basic .ticket-btn {
+            background: #222;
+
+            color: #fff;
+        }
+
+        .ticket-card.basic .ticket-btn:hover {
+            background: #ffc107;
+
+            color: #000;
+        }
+
+
+        /* INFO */
+
+        .ticket-info {
+            max-width: 1000px;
+
+            margin: 70px auto 0;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .info-box {
+            padding: 25px;
+
+            text-align: center;
+
+            background: #0d0d0d;
+
+            border: 1px solid #222;
+
+            border-radius: 15px;
+        }
+
+        .info-box i {
+            font-size: 25px;
+
+            color: #ffc107;
+
+            margin-bottom: 12px;
+        }
+
+        .info-box h4 {
+            margin-bottom: 8px;
+        }
+
+        .info-box p {
+            color: #777;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+
+        /* CTA */
+
+        .cta {
+            margin: 60px 7% 80px;
+
+            padding: 70px 30px;
+
+            text-align: center;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffc107,
+                    #ffb300
+                );
+
+            color: #000;
+        }
+
+        .cta h2 {
+            font-size: clamp(30px, 5vw, 55px);
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            max-width: 650px;
+
+            margin: 0 auto 30px;
+
+            line-height: 1.7;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 15px 28px;
+
+            background: #000;
+
+            color: #fff;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-weight: 800;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            padding: 35px 7%;
+
+            text-align: center;
+
+            border-top: 1px solid #222;
+
+            color: #777;
+        }
+
+        footer span {
+            color: #ffc107;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 950px) {
+
+            .tickets-grid {
+                grid-template-columns: 1fr;
+                max-width: 550px;
+            }
+
+            .ticket-card.featured {
+                transform: none;
+            }
+
+            .ticket-card.featured:hover {
+                transform: translateY(-10px);
+            }
+
+            .ticket-info {
+                grid-template-columns: 1fr;
+                max-width: 550px;
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .nav-links {
+                display: none;
+
+                position: absolute;
+
+                top: 70px;
+                left: 0;
+
+                width: 100%;
+
+                padding: 25px;
+
+                flex-direction: column;
+
+                text-align: center;
+
+                background: #080808;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 80px 5%;
+            }
+
+            .tickets-section {
+                padding: 60px 5%;
+            }
+
+            .cta {
+                margin: 40px 5% 60px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <a href="{% url 'index' %}" class="logo">
+        Motic<span>Africa</span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+
+        <li>
+            <a href="{% url 'index' %}">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'battle' %}">
+                Battle
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'teams' %}">
+                Teams
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'gallery' %}">
+                Gallery
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'tickets' %}"
+               class="active">
+                Tickets
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'about' %}">
+                About
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'contact' %}">
+                Contact
+            </a>
+        </li>
+
+    </ul>
+
+    <div class="menu-btn"
+         onclick="toggleMenu()">
+
+        <i class="fa-solid fa-bars"></i>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            <i class="fa-solid fa-ticket"></i>
+            KENYA MEGA CHOMA BATTLE
+        </div>
+
+        <h1>
+            GET YOUR <span>TICKET</span>
+        </h1>
+
+        <p>
+            Get ready for an unforgettable experience filled with
+            amazing food, music, culture, competition and entertainment.
+        </p>
+
+        <div class="location">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+            KICC, Nairobi
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TICKETS -->
+
+<section class="tickets-section">
+
+    <div class="section-heading">
+
+        <h2>
+            CHOOSE YOUR <span>EXPERIENCE</span>
+        </h2>
+
+        <p>
+            Select the ticket experience that works for you.
+        </p>
+
+    </div>
+
+
+    <div class="tickets-grid">
+
+
+        <!-- REGULAR -->
+
+        <div class="ticket-card basic">
+
+            <div class="ticket-icon">
+
+                <i class="fa-solid fa-ticket"></i>
+
+            </div>
+
+            <h3>
+                Regular
+            </h3>
+
+             <div class="price">
+        KSh 500
+    </div>
+
+            <p class="ticket-description">
+                Enjoy the main Kenya Mega Choma Battle
+                experience.
+            </p>
+
+            <ul class="features">
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Event entry
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Choma Battle experience
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Live entertainment
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Food & culture experience
+                </li>
+
+            </ul>
+
+            <a href="{% url 'ticket_booking' %}?type=Regular"
+   class="ticket-btn">
+    Get Regular Ticket
+</a>
+
+        </div>
+
+
+        <!-- VIP -->
+
+        <div class="ticket-card featured">
+
+            <div class="popular">
+                Popular
+            </div>
+
+            <div class="ticket-icon">
+
+                <i class="fa-solid fa-star"></i>
+
+            </div>
+
+            <h3>
+                VIP
+            </h3>
+
+            <div class="price">
+        KSh 1,500
+    </div>
+
+            <p class="ticket-description">
+                Upgrade your experience with exclusive
+                VIP access.
+            </p>
+
+            <ul class="features">
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    VIP event entry
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    VIP viewing area
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Premium experience
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Live entertainment
+                </li>
+
+            </ul>
+
+            <a href="{% url 'ticket_booking' %}?type=VIP"
+   class="ticket-btn">
+    Get VIP Ticket
+</a>
+
+        </div>
+
+
+        <!-- VVIP -->
+
+        <div class="ticket-card">
+
+            <div class="ticket-icon">
+
+                <i class="fa-solid fa-crown"></i>
+
+            </div>
+
+            <h3>
+                VVIP
+            </h3>
+
+
+ <div class="price">
+        KSh 3,000
+    </div>
+            <p class="ticket-description">
+                A premium experience designed for
+                guests who want more.
+            </p>
+
+            <ul class="features">
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    VVIP event entry
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Exclusive access
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Premium seating
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Exclusive experience
+                </li>
+
+            </ul>
+
+           <a href="{% url 'ticket_booking' %}?type=VVIP"
+   class="ticket-btn">
+    Get VVIP Ticket
+</a>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- INFO -->
+
+    <div class="ticket-info">
+
+        <div class="info-box">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+            <h4>
+                Venue
+            </h4>
+
+            <p>
+                Kenyatta International Convention Centre,
+                Nairobi.
+            </p>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <i class="fa-solid fa-calendar"></i>
+
+            <h4>
+                Event Date
+            </h4>
+
+            <p>
+             5 December 2026
+           </p>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            <h4>
+                Ticket Information
+            </h4>
+
+            <p>
+                Ticket prices and purchase options
+                will be announced.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <h2>
+        Bring Your People
+    </h2>
+
+    <p>
+        Register your team and take part in the Kenya Mega
+        Choma Battle at KICC Nairobi.
+    </p>
+
+    <a href="{% url 'team_registration' %}"
+       class="cta-btn">
+
+        <i class="fa-solid fa-users"></i>
+
+        Register Your Team
+
+    </a>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026
+    <span>MoticAfrica</span>.
+    Kenya Mega Choma Battle.
+
+</footer>
+
+
+<script>
+
+    function toggleMenu() {
+
+        document
+            .getElementById("navLinks")
+            .classList
+            .toggle("show");
+
+    }
+
+</script>
+
+</body>
+
+</html>

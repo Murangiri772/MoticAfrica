@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ticket Verification | MoticAfrica</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top, #292400, #080808 50%);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 15px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 620px;
+        }
+
+        .brand {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .brand h1 {
+            font-size: 32px;
+            font-weight: 900;
+        }
+
+        .brand span {
+            color: #ffd000;
+        }
+
+        .brand p {
+            color: #999;
+            margin-top: 7px;
+        }
+
+        .card {
+            background: #111;
+            border: 1px solid #292929;
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, .55);
+        }
+
+        .status-icon {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        .valid-icon {
+            background: #ffd000;
+            color: #111;
+        }
+
+        .pending-icon {
+            background: #ffd000;
+            color: #111;
+        }
+
+        .used-icon {
+            background: #292929;
+            color: #ffd000;
+        }
+
+        .invalid-icon {
+            background: #292929;
+            color: #ff4d4d;
+        }
+
+        h2 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .valid-title {
+            color: #ffd000;
+        }
+
+        .pending-title {
+            color: #ffd000;
+        }
+
+        .used-title {
+            color: #fff;
+        }
+
+        .invalid-title {
+            color: #ff4d4d;
+        }
+
+        .description {
+            color: #999;
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .details {
+            text-align: left;
+            background: #191919;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .detail {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 14px 0;
+            border-bottom: 1px solid #292929;
+        }
+
+        .detail:last-child {
+            border-bottom: none;
+        }
+
+        .detail span {
+            color: #888;
+        }
+
+        .detail strong {
+            text-align: right;
+        }
+
+        .reference {
+            margin-top: 22px;
+            padding: 18px;
+            border: 1px dashed #ffd000;
+            border-radius: 12px;
+        }
+
+        .reference small {
+            display: block;
+            color: #888;
+            margin-bottom: 7px;
+        }
+
+        .reference strong {
+            color: #ffd000;
+            font-size: 22px;
+            letter-spacing: 2px;
+        }
+
+        .event {
+            margin-top: 22px;
+            color: #999;
+            line-height: 1.7;
+        }
+
+        .event strong {
+            color: #fff;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 25px;
+            padding: 14px 25px;
+            background: #ffd000;
+            color: #111;
+            text-decoration: none;
+            border-radius: 9px;
+            font-weight: bold;
+        }
+
+        .simple-message {
+            color: #999;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 500px) {
+
+            .card {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 25px;
+            }
+
+            .detail {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .detail strong {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="brand">
+
+        <h1>
+            Motic<span>Africa</span>
+        </h1>
+
+        <p>
+            Kenya Mega Choma Battle
+        </p>
+
+    </div>
+
+
+    {% if valid %}
+
+        <!-- VALID TICKET -->
+
+        <div class="card">
+
+            <div class="status-icon valid-icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+
+            <h2 class="valid-title">
+                VALID TICKET
+            </h2>
+
+            <p class="description">
+                Payment has been confirmed.
+                This ticket is valid for entry to the
+                Kenya Mega Choma Battle.
+            </p>
+
+
+            <div class="details">
+
+                <div class="detail">
+                    <span>Attendee</span>
+                    <strong>
+                        {{ booking.full_name }}
+                    </strong>
+                </div>
+
+                <div class="detail">
+                    <span>Ticket Type</span>
+                    <strong>
+                        {{ booking.ticket_type }}
+                    </strong>
+                </div>
+
+                <div class="detail">
+                    <span>Number of Tickets</span>
+                    <strong>
+                        {{ booking.number_of_tickets }}
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="reference">
+
+                <small>
+                    BOOKING REFERENCE
+                </small>
+
+                <strong>
+                    {{ booking.booking_reference }}
+                </strong>
+
+            </div>
+
+
+            <div class="event">
+
+                <strong>
+                    Kenya Mega Choma Battle
+                </strong>
+
+                <br>
+
+                5 December 2026
+
+                <br>
+
+                KICC, Nairobi
+
+            </div>
+
+        </div>
+
+
+    {% elif pending %}
+
+        <!-- PAYMENT PENDING -->
+
+        <div class="card">
+
+            <div class="status-icon pending-icon">
+                <i class="fa-solid fa-clock"></i>
+            </div>
+
+            <h2 class="pending-title">
+                PAYMENT PENDING
+            </h2>
+
+            <p class="description">
+                This booking exists, but payment has not
+                yet been confirmed. The ticket cannot be
+                accepted for entry until payment is confirmed.
+            </p>
+
+
+            <div class="reference">
+
+                <small>
+                    BOOKING REFERENCE
+                </small>
+
+                <strong>
+                    {{ booking.booking_reference }}
+                </strong>
+
+            </div>
+
+            <a href="{% url 'tickets' %}" class="button">
+                <i class="fa-solid fa-ticket"></i>
+                Tickets
+            </a>
+
+        </div>
+
+
+    {% elif used %}
+
+        <!-- USED TICKET -->
+
+        <div class="card">
+
+            <div class="status-icon used-icon">
+                <i class="fa-solid fa-ban"></i>
+            </div>
+
+            <h2 class="used-title">
+                TICKET ALREADY USED
+            </h2>
+
+            <p class="description">
+                This ticket has already been marked as used
+                and should not be accepted for another entry.
+            </p>
+
+
+            <div class="reference">
+
+                <small>
+                    BOOKING REFERENCE
+                </small>
+
+                <strong>
+                    {{ booking.booking_reference }}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+    {% else %}
+
+        <!-- NOT FOUND -->
+
+        <div class="card">
+
+            <div class="status-icon invalid-icon">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+
+            <h2 class="invalid-title">
+                TICKET NOT FOUND
+            </h2>
+
+            <p class="description">
+                This booking reference does not exist in
+                the MoticAfrica ticket system.
+                Please check the QR code or reference number.
+            </p>
+
+            <a href="{% url 'tickets' %}" class="button">
+                <i class="fa-solid fa-ticket"></i>
+                Get a Ticket
+            </a>
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+
+</html>

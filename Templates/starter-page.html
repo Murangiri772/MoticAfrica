@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MoticAfrica | Kenya Mega Choma Battle</title>
+
+    <meta name="description"
+          content="MoticAfrica presents the Kenya Mega Choma Battle — food, music, culture and entertainment.">
+
+    <meta name="keywords"
+          content="MoticAfrica, Kenya Mega Choma Battle, Choma, Kenya, entertainment, music, food">
+
+    {% load static %}
+
+    <!-- Favicon -->
+    <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+    <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Poppins:wght@400;500;600;700;800&family=Raleway:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Vendor CSS -->
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+</head>
+
+
+<body class="starter-page-page">
+
+<!-- ======================================================
+     MOTICAFRICA HEADER
+====================================================== -->
+
+<header id="header" class="motic-header">
+
+    <div class="motic-header-inner">
+
+        <!-- LOGO -->
+        <a href="{% url 'index' %}" class="motic-logo">
+
+            <div class="motic-logo-main">
+                MOTIC<span>AFRICA</span>
+            </div>
+
+            <div class="motic-logo-subtitle">
+                KENYA MEGA CHOMA BATTLE
+            </div>
+
+        </a>
+
+
+        <!-- NAVIGATION -->
+        <nav id="navmenu" class="motic-nav">
+
+            <ul>
+
+                <li>
+                    <a href="{% url 'index' %}">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'about' %}">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'teams' %}">
+                        Teams
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'battle' %}">
+                        Battle
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'gallery' %}">
+                        Gallery
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'contact' %}">
+                        Contact
+                    </a>
+                </li>
+
+                <li class="ticket-item">
+                    <a href="{% url 'tickets' %}" class="ticket-button">
+                        <i class="bi bi-ticket-perforated"></i>
+                        Get Tickets
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <!-- SOCIAL ICONS -->
+        <div class="motic-social">
+
+            <a href="#" aria-label="Facebook">
+                <i class="bi bi-facebook"></i>
+            </a>
+
+            <a href="#" aria-label="Instagram">
+                <i class="bi bi-instagram"></i>
+            </a>
+
+            <a href="#" aria-label="Twitter">
+                <i class="bi bi-twitter-x"></i>
+            </a>
+
+        </div>
+
+
+        <!-- MOBILE MENU -->
+        <i class="bi bi-list mobile-menu-icon"></i>
+
+    </div>
+
+</header>
+
+
+<!-- ======================================================
+     HEADER DESIGN
+====================================================== -->
+
+<style>
+
+    /* ================================
+       MAIN HEADER
+    ================================= */
+
+    .motic-header {
+
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 82px;
+
+        z-index: 9999;
+
+        background: rgba(10, 10, 10, 0.97);
+
+        border-bottom: 1px solid rgba(245, 180, 0, 0.15);
+
+        box-shadow:
+            0 8px 30px rgba(0, 0, 0, 0.35);
+
+        backdrop-filter: blur(12px);
+    }
+
+
+    /* GOLD LINE */
+
+    .motic-header::after {
+
+        content: "";
+
+        position: absolute;
+
+        bottom: 0;
+        left: 0;
+
+        width: 100%;
+        height: 2px;
+
+        background: linear-gradient(
+            90deg,
+            transparent,
+            #f5b400,
+            transparent
+        );
+
+        opacity: 0.7;
+    }
+
+
+    /* ================================
+       HEADER INNER
+    ================================= */
+
+    .motic-header-inner {
+
+        width: 92%;
+        max-width: 1400px;
+
+        height: 100%;
+
+        margin: auto;
+
+        display: flex;
+        align-items: center;
+
+        gap: 30px;
+    }
+
+
+    /* ================================
+       LOGO
+    ================================= */
+
+    .motic-logo {
+
+        text-decoration: none;
+
+        display: flex;
+        flex-direction: column;
+
+        min-width: 235px;
+    }
+
+
+    .motic-logo-main {
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: 25px;
+
+        font-weight: 900;
+
+        line-height: 1;
+
+        letter-spacing: 1px;
+
+        color: #ffffff;
+    }
+
+
+    .motic-logo-main span {
+
+        color: #f5b400;
+    }
+
+
+    .motic-logo-subtitle {
+
+        margin-top: 5px;
+
+        font-family: "Roboto", sans-serif;
+
+        font-size: 8px;
+
+        font-weight: 700;
+
+        letter-spacing: 2.5px;
+
+        color: #999999;
+    }
+
+
+    /* ================================
+       NAVIGATION
+    ================================= */
+
+    .motic-nav {
+
+        margin-left: auto;
+    }
+
+
+    .motic-nav ul {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 3px;
+
+        list-style: none;
+
+        padding: 0;
+
+        margin: 0;
+    }
+
+
+    .motic-nav li {
+
+        list-style: none;
+    }
+
+
+    .motic-nav li > a {
+
+        position: relative;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 6px;
+
+        padding: 10px 13px;
+
+        color: #dddddd;
+
+        text-decoration: none;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: 13px;
+
+        font-weight: 600;
+
+        transition: 0.3s ease;
+    }
+
+
+    /* NAV HOVER */
+
+    .motic-nav li > a:hover {
+
+        color: #f5b400;
+    }
+
+
+    /* UNDERLINE */
+
+    .motic-nav li > a:not(.ticket-button)::after {
+
+        content: "";
+
+        position: absolute;
+
+        left: 13px;
+        right: 13px;
+
+        bottom: 2px;
+
+        height: 2px;
+
+        background: #f5b400;
+
+        transform: scaleX(0);
+
+        transition: 0.3s ease;
+    }
+
+
+    .motic-nav li > a:not(.ticket-button):hover::after {
+
+        transform: scaleX(1);
+    }
+
+
+    /* ================================
+       TICKET BUTTON
+    ================================= */
+
+    .ticket-item {
+
+        margin-left: 8px;
+    }
+
+
+    .ticket-button {
+
+        background: #f5b400;
+
+        color: #0d0d0d !important;
+
+        padding: 11px 18px !important;
+
+        border-radius: 5px;
+
+        font-weight: 800 !important;
+
+        box-shadow:
+            0 5px 15px rgba(245, 180, 0, 0.18);
+
+        transition: all 0.3s ease !important;
+    }
+
+
+    .ticket-button:hover {
+
+        background: #ffffff;
+
+        color: #0d0d0d !important;
+
+        transform: translateY(-2px);
+
+        box-shadow:
+            0 8px 22px rgba(245, 180, 0, 0.25);
+    }
+
+
+    /* ================================
+       SOCIAL ICONS
+    ================================= */
+
+    .motic-social {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 7px;
+
+        margin-left: 12px;
+    }
+
+
+    .motic-social a {
+
+        width: 32px;
+
+        height: 32px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        border: 1px solid #333333;
+
+        border-radius: 50%;
+
+        color: #bbbbbb;
+
+        text-decoration: none;
+
+        transition: all 0.3s ease;
+    }
+
+
+    .motic-social a:hover {
+
+        background: #f5b400;
+
+        border-color: #f5b400;
+
+        color: #0d0d0d;
+
+        transform: translateY(-2px);
+    }
+
+
+    /* ================================
+       MOBILE ICON
+    ================================= */
+
+    .mobile-menu-icon {
+
+        display: none;
+
+        margin-left: auto;
+
+        font-size: 30px;
+
+        color: #f5b400;
+
+        cursor: pointer;
+    }
+
+
+    /* ================================
+       TABLET
+    ================================= */
+
+    @media (max-width: 1200px) {
+
+        .motic-header-inner {
+
+            width: 94%;
+        }
+
+        .motic-logo {
+
+            min-width: 200px;
+        }
+
+        .motic-nav li > a {
+
+            padding: 10px 8px;
+
+            font-size: 12px;
+        }
+
+        .motic-social {
+
+            display: none;
+        }
+    }
+
+
+    /* ================================
+       MOBILE
+    ================================= */
+
+    @media (max-width: 991px) {
+
+        .motic-header {
+
+            height: 75px;
+        }
+
+        .motic-header-inner {
+
+            width: 92%;
+        }
+
+        .motic-logo-main {
+
+            font-size: 22px;
+        }
+
+        .motic-logo-subtitle {
+
+            font-size: 7px;
+
+            letter-spacing: 2px;
+        }
+
+        .motic-nav {
+
+            display: none;
+        }
+
+        .mobile-menu-icon {
+
+            display: block;
+        }
+    }
+
+
+    /* ================================
+       SMALL PHONES
+    ================================= */
+
+    @media (max-width: 480px) {
+
+        .motic-logo-main {
+
+            font-size: 20px;
+        }
+
+        .motic-logo-subtitle {
+
+            font-size: 6px;
+
+            letter-spacing: 1.5px;
+        }
+
+    }
+
+</style>
+
+<!-- ======================================================
+     MAIN CONTENT
+====================================================== -->
+
+<main class="main">
+
+    {% block content %}
+
+    {% endblock %}
+
+</main>
+
+
+<!-- ======================================================
+     FOOTER
+====================================================== -->
+
+<!-- ======================================================
+     MOTICAFRICA FOOTER
+====================================================== -->
+
+<footer id="footer" class="footer motic-footer">
+
+    <div class="container">
+
+        <div class="row gy-5">
+
+            <!-- BRAND -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <a href="{% url 'index' %}"
+                   class="motic-footer-logo">
+
+                    <span>Motic</span>Africa
+
+                </a>
+
+                <p class="motic-footer-description">
+
+                    MoticAfrica brings food, culture, music,
+                    entertainment and competition together
+                    through the Kenya Mega Choma Battle.
+
+                </p>
+
+                <div class="motic-footer-contact">
+
+                    <div>
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <span>Kenya</span>
+                    </div>
+
+                    <div>
+                        <i class="bi bi-telephone-fill"></i>
+                        <span>0796 004 220</span>
+                    </div>
+
+                    <div>
+                        <i class="bi bi-envelope-fill"></i>
+                        <span>info@moticafrica.com</span>
+                    </div>
+
+                </div>
+
+
+                <!-- SOCIAL -->
+
+                <div class="motic-footer-social">
+
+                    <a href="#" aria-label="X">
+                        <i class="bi bi-twitter-x"></i>
+                    </a>
+
+                    <a href="#" aria-label="Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+                    <a href="#" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="#" aria-label="LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUICK LINKS -->
+
+            <div class="col-lg-2 col-md-6">
+
+                <h4 class="motic-footer-title">
+                    Quick Links
+                </h4>
+
+                <ul class="motic-footer-links">
+
+                    <li>
+                        <a href="{% url 'index' %}">
+                            <i class="bi bi-chevron-right"></i>
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'about' %}">
+                            <i class="bi bi-chevron-right"></i>
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'teams' %}">
+                            <i class="bi bi-chevron-right"></i>
+                            Teams
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'gallery' %}">
+                            <i class="bi bi-chevron-right"></i>
+                            Gallery
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'contact' %}">
+                            <i class="bi bi-chevron-right"></i>
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- EVENT -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <h4 class="motic-footer-title">
+                    Mega Choma Battle
+                </h4>
+
+                <ul class="motic-footer-links">
+
+                    <li>
+                        <a href="{% url 'teams' %}">
+                            <i class="bi bi-chevron-right"></i>
+                            Teams
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'battle' %}">
+                            <i class="bi bi-chevron-right"></i>
+                            Choma Battle
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'tickets' %}">
+                            <i class="bi bi-chevron-right"></i>
+                            Get Tickets
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'gallery' %}">
+                            <i class="bi bi-chevron-right"></i>
+                            Gallery
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'contact' %}">
+                            <i class="bi bi-chevron-right"></i>
+                            Contact Us
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- CTA -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="motic-footer-cta">
+
+                    <div class="motic-footer-fire">
+
+                        <i class="bi bi-fire"></i>
+
+                    </div>
+
+                    <h4>
+                        Ready for the Battle?
+                    </h4>
+
+                    <p>
+                        Get your ticket and experience
+                        Kenya's ultimate Choma celebration.
+                    </p>
+
+                    <a href="{% url 'tickets' %}"
+                       class="motic-footer-button">
+
+                        Get Your Ticket
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                    <a href="https://wa.me/254796004220"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="motic-whatsapp">
+
+                        <i class="bi bi-whatsapp"></i>
+
+                        WhatsApp Us
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- BOTTOM -->
+
+    <div class="motic-footer-bottom">
+
+        <div class="container">
+
+            <div class="row align-items-center gy-3">
+
+                <div class="col-md-6">
+
+                    <p>
+                        © {% now "Y" %}
+                        <strong>MoticAfrica</strong>.
+                        All Rights Reserved.
+                    </p>
+
+                </div>
+
+                <div class="col-md-6 text-md-end">
+
+                    <p>
+                        Kenya Mega Choma Battle
+                        <span class="footer-fire">🔥</span>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- ======================================================
+     FOOTER CSS
+====================================================== -->
+
+<style>
+
+.motic-footer {
+
+    background: #0d0d0d;
+
+    color: #fff;
+
+    padding-top: 80px;
+
+}
+
+
+/* LOGO */
+
+.motic-footer-logo {
+
+    display: inline-block;
+
+    color: #fff;
+
+    font-size: 32px;
+
+    font-weight: 900;
+
+    text-decoration: none;
+
+    letter-spacing: -1px;
+
+    margin-bottom: 20px;
+
+}
+
+.motic-footer-logo span {
+
+    color: #f5b400;
+
+}
+
+
+.motic-footer-description {
+
+    color: #888;
+
+    line-height: 1.8;
+
+    max-width: 390px;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* CONTACT */
+
+.motic-footer-contact {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+.motic-footer-contact div {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: #aaa;
+
+}
+
+.motic-footer-contact i {
+
+    color: #f5b400;
+
+    width: 18px;
+
+}
+
+
+/* SOCIAL */
+
+.motic-footer-social {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+}
+
+.motic-footer-social a {
+
+    width: 40px;
+
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #1a1a1a;
+
+    color: #aaa;
+
+    text-decoration: none;
+
+    transition: .3s;
+
+}
+
+.motic-footer-social a:hover {
+
+    background: #f5b400;
+
+    color: #111;
+
+    transform: translateY(-3px);
+
+}
+
+
+/* TITLES */
+
+.motic-footer-title {
+
+    color: #fff;
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    margin-bottom: 25px;
+
+    position: relative;
+
+    padding-bottom: 12px;
+
+}
+
+.motic-footer-title::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 35px;
+
+    height: 3px;
+
+    background: #f5b400;
+
+}
+
+
+/* LINKS */
+
+.motic-footer-links {
+
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+
+}
+
+.motic-footer-links li {
+
+    margin-bottom: 13px;
+
+}
+
+.motic-footer-links a {
+
+    color: #888;
+
+    text-decoration: none;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    transition: .3s;
+
+}
+
+.motic-footer-links a:hover {
+
+    color: #f5b400;
+
+    padding-left: 5px;
+
+}
+
+.motic-footer-links i {
+
+    color: #f5b400;
+
+    font-size: 11px;
+
+}
+
+
+/* CTA */
+
+.motic-footer-cta {
+
+    padding: 25px;
+
+    background: #171717;
+
+    border: 1px solid #292929;
+
+}
+
+.motic-footer-fire {
+
+    width: 45px;
+
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #f5b400;
+
+    color: #111;
+
+    font-size: 22px;
+
+    margin-bottom: 18px;
+
+}
+
+.motic-footer-cta h4 {
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+    margin-bottom: 10px;
+
+}
+
+.motic-footer-cta p {
+
+    color: #888;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+
+}
+
+
+/* BUTTON */
+
+.motic-footer-button {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    background: #f5b400;
+
+    color: #111;
+
+    text-decoration: none;
+
+    padding: 13px 15px;
+
+    font-weight: 800;
+
+    margin-top: 20px;
+
+    transition: .3s;
+
+}
+
+.motic-footer-button:hover {
+
+    background: #fff;
+
+    color: #111;
+
+}
+
+
+/* WHATSAPP */
+
+.motic-whatsapp {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 10px;
+
+    padding: 11px;
+
+    border: 1px solid #333;
+
+    color: #aaa;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: .3s;
+
+}
+
+.motic-whatsapp:hover {
+
+    border-color: #f5b400;
+
+    color: #f5b400;
+
+}
+
+
+/* BOTTOM */
+
+.motic-footer-bottom {
+
+    margin-top: 60px;
+
+    padding: 25px 0;
+
+    border-top: 1px solid #242424;
+
+}
+
+.motic-footer-bottom p {
+
+    margin: 0;
+
+    color: #666;
+
+    font-size: 14px;
+
+}
+
+.motic-footer-bottom strong {
+
+    color: #f5b400;
+
+}
+
+.footer-fire {
+
+    font-size: 16px;
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 767px) {
+
+    .motic-footer {
+
+        padding-top: 60px;
+
+    }
+
+    .motic-footer-bottom {
+
+        text-align: center;
+
+    }
+
+}
+
+</style>
+
+
+
+<!-- ======================================================
+     SCROLL TOP
+====================================================== -->
+
+<a href="#"
+   id="scroll-top"
+   class="scroll-top d-flex align-items-center justify-content-center">
+
+    <i class="bi bi-arrow-up-short"></i>
+
+</a>
+
+
+<!-- ======================================================
+     PRELOADER
+====================================================== -->
+
+<div id="preloader"></div>
+
+
+<!-- ======================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+<script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+
+<script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+
+<script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+
+<script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+
+<script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+
+<script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+
+</body>
+
+</html>

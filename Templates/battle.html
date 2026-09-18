@@ -1,0 +1,829 @@
+
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mega Choma Battle | MoticAfrica</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080808;
+            color: white;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            height: 76px;
+            padding: 0 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(8,8,8,.95);
+            border-bottom: 1px solid #222;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 900;
+            color: #f4c400;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: #ddd;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links .active {
+            color: #f4c400;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 720px;
+            display: flex;
+            align-items: center;
+            padding: 100px 7%;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    circle at 80% 50%,
+                    rgba(244,196,0,.18),
+                    transparent 35%
+                );
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 9px 18px;
+            border-radius: 30px;
+            background: #f4c400;
+            color: #111;
+            font-size: 13px;
+            font-weight: 900;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 9vw, 105px);
+            line-height: .9;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: #f4c400;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: #aaa;
+            line-height: 1.8;
+            margin: 30px 0;
+            font-size: 17px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 900;
+            transition: .3s;
+        }
+
+        .primary {
+            background: #f4c400;
+            color: #111;
+        }
+
+        .secondary {
+            border: 1px solid #555;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+        }
+
+        .primary:hover {
+            background: #ffd633;
+        }
+
+        /* FIRE */
+
+        .fire {
+            position: absolute;
+            right: 7%;
+            font-size: 260px;
+            color: rgba(244,196,0,.08);
+            transform: rotate(-10deg);
+        }
+
+        /* COUNTDOWN */
+
+        .countdown-section {
+            padding: 70px 7%;
+            background: #f4c400;
+            color: #111;
+            text-align: center;
+        }
+
+        .countdown-section h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .countdown-section p {
+            margin-bottom: 35px;
+            font-weight: bold;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .time {
+            background: #111;
+            color: white;
+            width: 120px;
+            padding: 20px 10px;
+            border-radius: 15px;
+        }
+
+        .time strong {
+            display: block;
+            font-size: 35px;
+            color: #f4c400;
+        }
+
+        .time span {
+            font-size: 12px;
+            color: #aaa;
+            text-transform: uppercase;
+        }
+
+        /* EXPERIENCE */
+
+        .section {
+            padding: 100px 7%;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 700px;
+            margin: auto auto 55px;
+        }
+
+        .section-heading span {
+            color: #f4c400;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        .section-heading h2 {
+            font-size: 48px;
+            margin: 12px 0;
+        }
+
+        .section-heading p {
+            color: #888;
+            line-height: 1.7;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(240px, 1fr));
+            gap: 22px;
+        }
+
+        .experience-card {
+            background: #111;
+            border: 1px solid #242424;
+            padding: 35px 28px;
+            border-radius: 18px;
+            transition: .3s;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-8px);
+            border-color: #f4c400;
+        }
+
+        .experience-card i {
+            color: #f4c400;
+            font-size: 35px;
+            margin-bottom: 25px;
+        }
+
+        .experience-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .experience-card p {
+            color: #888;
+            line-height: 1.7;
+        }
+
+        /* EVENT INFO */
+
+        .event-info {
+            background: #101010;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            padding: 30px;
+            border: 1px solid #292929;
+            border-radius: 15px;
+        }
+
+        .info-card i {
+            color: #f4c400;
+            font-size: 28px;
+            margin-bottom: 18px;
+        }
+
+        .info-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .info-card p {
+            color: #888;
+        }
+
+        /* CTA */
+
+        .cta {
+            padding: 110px 20px;
+            text-align: center;
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(244,196,0,.15),
+                    transparent 55%
+                );
+        }
+
+        .cta h2 {
+            font-size: clamp(40px, 6vw, 70px);
+            margin-bottom: 20px;
+        }
+
+        .cta h2 span {
+            color: #f4c400;
+        }
+
+        .cta p {
+            color: #888;
+            max-width: 600px;
+            margin: auto auto 30px;
+            line-height: 1.7;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid #222;
+            padding: 30px 7%;
+            text-align: center;
+            color: #777;
+        }
+
+        footer strong {
+            color: #f4c400;
+        }
+
+        /* MOBILE */
+
+        @media(max-width: 700px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            nav {
+                padding: 0 20px;
+            }
+
+            .hero {
+                padding: 90px 20px;
+                min-height: 650px;
+            }
+
+            .fire {
+                right: -70px;
+                font-size: 180px;
+            }
+
+            .section {
+                padding: 75px 20px;
+            }
+
+            .section-heading h2 {
+                font-size: 36px;
+            }
+
+            .time {
+                width: 100px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+        MOTIC<span>AFRICA</span>
+    </div>
+
+    <div class="nav-links">
+
+        <a href="{% url 'index' %}">
+            Home
+        </a>
+
+        <a href="{% url 'battle' %}" class="active">
+            Battle
+        </a>
+
+        <a href="{% url 'teams' %}">
+            Teams
+        </a>
+
+        <a href="{% url 'about' %}">
+            About
+        </a>
+
+        <a href="{% url 'contact' %}">
+            Contact
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="tag">
+            <i class="fa-solid fa-fire"></i>
+            THE ULTIMATE FOOD BATTLE
+        </div>
+
+        <h1>
+            MEGA<br>
+            <span>CHOMA</span><br>
+            BATTLE
+        </h1>
+
+        <p>
+            Welcome to the Kenya Mega Choma Battle —
+            where teams come together for food, music,
+            culture, competition and unforgettable
+            entertainment.
+        </p>
+
+        <div class="buttons">
+
+            <a href="{% url 'team_registration' %}"
+               class="btn primary">
+
+                <i class="fa-solid fa-users"></i>
+
+                Register Your Team
+
+            </a>
+
+            <a href="#experience"
+               class="btn secondary">
+
+                Discover The Battle
+
+                <i class="fa-solid fa-arrow-down"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="fire">
+
+        <i class="fa-solid fa-fire"></i>
+
+    </div>
+
+</section>
+
+
+<!-- COUNTDOWN -->
+
+<section class="countdown-section">
+
+    <h2>
+        THE BATTLE IS ON
+    </h2>
+
+    <p>
+        Get your team ready.
+    </p>
+
+    <div class="countdown">
+
+        <div class="time">
+            <strong id="days">00</strong>
+            <span>Days</span>
+        </div>
+
+        <div class="time">
+            <strong id="hours">00</strong>
+            <span>Hours</span>
+        </div>
+
+        <div class="time">
+            <strong id="minutes">00</strong>
+            <span>Minutes</span>
+        </div>
+
+        <div class="time">
+            <strong id="seconds">00</strong>
+            <span>Seconds</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EXPERIENCE -->
+
+<section class="section"
+         id="experience">
+
+    <div class="section-heading">
+
+        <span>
+            What Awaits You
+        </span>
+
+        <h2>
+            More Than A Battle
+        </h2>
+
+        <p>
+            Experience an event built around
+            food, competition, entertainment,
+            community and Kenyan culture.
+        </p>
+
+    </div>
+
+
+    <div class="experience-grid">
+
+
+        <div class="experience-card">
+
+            <i class="fa-solid fa-drumstick-bite"></i>
+
+            <h3>
+                Mega Choma
+            </h3>
+
+            <p>
+                Teams bring their passion,
+                creativity and cooking skills
+                to the ultimate choma experience.
+            </p>
+
+        </div>
+
+
+        <div class="experience-card">
+
+            <i class="fa-solid fa-trophy"></i>
+
+            <h3>
+                Competition
+            </h3>
+
+            <p>
+                Teams go head-to-head while
+                showcasing their skills and
+                competitive spirit.
+            </p>
+
+        </div>
+
+
+        <div class="experience-card">
+
+            <i class="fa-solid fa-music"></i>
+
+            <h3>
+                Live Entertainment
+            </h3>
+
+            <p>
+                Music, performances and
+                entertainment keep the
+                atmosphere alive throughout
+                the event.
+            </p>
+
+        </div>
+
+
+        <div class="experience-card">
+
+            <i class="fa-solid fa-people-group"></i>
+
+            <h3>
+                Community
+            </h3>
+
+            <p>
+                Bring your friends, family and
+                community together for a
+                memorable experience.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- EVENT INFORMATION -->
+
+<section class="section event-info">
+
+    <div class="section-heading">
+
+        <span>
+            Event Information
+        </span>
+
+        <h2>
+            Know The Battle
+        </h2>
+
+    </div>
+
+
+    <div class="info-grid">
+
+
+        <div class="info-card">
+
+            <i class="fa-solid fa-calendar-days"></i>
+
+            <h3>
+                Date
+            </h3>
+
+            <p>
+               5 December 2026
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+    <i class="fa-solid fa-location-dot"></i>
+    <h3>Location</h3>
+    <p>KICC.</p>
+</div>
+
+
+        <div class="info-card">
+
+            <i class="fa-solid fa-ticket"></i>
+
+            <h3>
+                Team Entry
+            </h3>
+
+            <p>
+                Register your team through
+                MoticAfrica.
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <i class="fa-solid fa-fire"></i>
+
+            <h3>
+                Experience
+            </h3>
+
+            <p>
+                Food, culture, music and
+                entertainment.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <h2>
+        Ready For The <span>Battle?</span>
+    </h2>
+
+    <p>
+        Get your team together and register
+        for the Kenya Mega Choma Battle.
+    </p>
+
+    <a href="{% url 'team_registration' %}"
+       class="btn primary">
+
+        <i class="fa-solid fa-users"></i>
+
+        Register Your Team
+
+    </a>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 <strong>MoticAfrica</strong>
+    — Kenya Mega Choma Battle
+
+</footer>
+
+
+<script>
+
+    /*
+       Replace this date later with the
+       official event date.
+    */
+
+    const eventDate =
+        new Date("2026-12-31T18:00:00").getTime();
+
+
+    function updateCountdown() {
+
+        const now = new Date().getTime();
+
+        const distance = eventDate - now;
+
+
+        if (distance <= 0) {
+
+            document.getElementById("days").innerText = "00";
+            document.getElementById("hours").innerText = "00";
+            document.getElementById("minutes").innerText = "00";
+            document.getElementById("seconds").innerText = "00";
+
+            return;
+        }
+
+
+        const days =
+            Math.floor(distance / (1000 * 60 * 60 * 24));
+
+        const hours =
+            Math.floor(
+                (distance % (1000 * 60 * 60 * 24))
+                / (1000 * 60 * 60)
+            );
+
+        const minutes =
+            Math.floor(
+                (distance % (1000 * 60 * 60))
+                / (1000 * 60)
+            );
+
+        const seconds =
+            Math.floor(
+                (distance % (1000 * 60))
+                / 1000
+            );
+
+
+        document.getElementById("days").innerText =
+            String(days).padStart(2, "0");
+
+        document.getElementById("hours").innerText =
+            String(hours).padStart(2, "0");
+
+        document.getElementById("minutes").innerText =
+            String(minutes).padStart(2, "0");
+
+        document.getElementById("seconds").innerText =
+            String(seconds).padStart(2, "0");
+    }
+
+
+    updateCountdown();
+
+    setInterval(updateCountdown, 1000);
+
+</script>
+
+
+</body>
+
+</html>

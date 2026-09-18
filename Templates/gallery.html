@@ -1,0 +1,976 @@
+
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Gallery | MoticAfrica</title>
+
+    <meta name="description"
+          content="Explore moments from MoticAfrica and the Kenya Mega Choma Battle.">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #050505;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 18px 7%;
+
+            background: rgba(5, 5, 5, 0.96);
+
+            border-bottom: 1px solid rgba(255, 193, 7, 0.15);
+
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 900;
+            color: #ffc107;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #fff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links .active {
+            color: #ffc107;
+        }
+
+        .menu-btn {
+            display: none;
+            color: #ffc107;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 55vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 100px 7% 80px;
+
+            position: relative;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(255, 193, 7, 0.14),
+                    transparent 55%
+                );
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+
+            padding: 9px 18px;
+
+            border: 1px solid #ffc107;
+            border-radius: 30px;
+
+            color: #ffc107;
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 90px);
+
+            line-height: 0.95;
+
+            font-weight: 1000;
+
+            text-transform: uppercase;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #ffc107;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+
+            color: #aaa;
+
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        /* GALLERY */
+
+        .gallery-section {
+            padding: 80px 7%;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(30px, 5vw, 52px);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-heading h2 span {
+            color: #ffc107;
+        }
+
+        .section-heading p {
+            color: #888;
+        }
+
+        /* FILTERS */
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+
+            margin-bottom: 45px;
+        }
+
+        .filter-btn {
+            border: 1px solid #333;
+
+            background: #111;
+
+            color: #aaa;
+
+            padding: 11px 22px;
+
+            border-radius: 30px;
+
+            cursor: pointer;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            transition: 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #ffc107;
+            color: #000;
+            border-color: #ffc107;
+        }
+
+        /* GRID */
+
+        .gallery-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .gallery-item {
+            position: relative;
+
+            height: 280px;
+
+            overflow: hidden;
+
+            border-radius: 18px;
+
+            background: #111;
+
+            cursor: pointer;
+
+            border: 1px solid #222;
+
+            transition: 0.4s;
+        }
+
+        .gallery-item.large {
+            grid-column: span 2;
+            height: 380px;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-7px);
+
+            border-color: #ffc107;
+
+            box-shadow:
+                0 15px 45px rgba(255, 193, 7, 0.12);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition: transform 0.6s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* OVERLAY */
+
+        .gallery-overlay {
+            position: absolute;
+
+            inset: 0;
+
+            display: flex;
+
+            align-items: flex-end;
+
+            padding: 25px;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0,0,0,0.9),
+                    transparent 65%
+                );
+
+            opacity: 0;
+
+            transition: 0.4s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .overlay-content h3 {
+            font-size: 20px;
+            margin-bottom: 6px;
+        }
+
+        .overlay-content p {
+            color: #ffc107;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .view-icon {
+            position: absolute;
+
+            top: 20px;
+            right: 20px;
+
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #ffc107;
+            color: #000;
+
+            border-radius: 50%;
+
+            font-size: 15px;
+        }
+
+        /* CTA */
+
+        .cta {
+            margin: 60px 7% 80px;
+
+            padding: 70px 30px;
+
+            text-align: center;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffc107,
+                    #ffb300
+                );
+
+            color: #000;
+        }
+
+        .cta h2 {
+            font-size: clamp(30px, 5vw, 55px);
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            max-width: 650px;
+
+            margin: 0 auto 30px;
+
+            line-height: 1.7;
+
+            color: #222;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 15px 28px;
+
+            background: #000;
+
+            color: #fff;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-weight: 800;
+
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+
+            background: #151515;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 35px 7%;
+
+            border-top: 1px solid #222;
+
+            text-align: center;
+
+            color: #777;
+        }
+
+        footer span {
+            color: #ffc107;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 1000px) {
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-item.large {
+                grid-column: span 2;
+            }
+
+        }
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 16px 5%;
+            }
+
+            .nav-links {
+                display: none;
+
+                position: absolute;
+
+                top: 70px;
+                left: 0;
+
+                width: 100%;
+
+                padding: 25px;
+
+                flex-direction: column;
+
+                background: #080808;
+
+                text-align: center;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero {
+                min-height: 50vh;
+                padding: 80px 5%;
+            }
+
+            .gallery-section {
+                padding: 60px 5%;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item,
+            .gallery-item.large {
+                grid-column: span 1;
+                height: 300px;
+            }
+
+            .gallery-overlay {
+                opacity: 1;
+            }
+
+            .cta {
+                margin: 40px 5% 60px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <a href="{% url 'index' %}" class="logo">
+        Motic<span>Africa</span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+
+        <li>
+            <a href="{% url 'index' %}">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'battle' %}">
+                Battle
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'teams' %}">
+                Teams
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'gallery' %}" class="active">
+                Gallery
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'about' %}">
+                About
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'contact' %}">
+                Contact
+            </a>
+        </li>
+
+    </ul>
+
+    <div class="menu-btn" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            <i class="fa-solid fa-camera"></i>
+            MOTICAFRICA MOMENTS
+        </div>
+
+        <h1>
+            THE <span>GALLERY</span>
+        </h1>
+
+        <p>
+            Explore the energy, culture, food, music and unforgettable
+            moments that make MoticAfrica an experience like no other.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section class="gallery-section">
+
+    <div class="section-heading">
+
+        <h2>
+            EXPERIENCE THE <span>ENERGY</span>
+        </h2>
+
+        <p>
+            A glimpse into the world of MoticAfrica.
+        </p>
+
+    </div>
+
+
+    <!-- FILTERS -->
+
+    <div class="filters">
+
+        <button class="filter-btn active"
+                onclick="filterGallery('all', this)">
+            All
+        </button>
+
+        <button class="filter-btn"
+                onclick="filterGallery('battle', this)">
+            Battle
+        </button>
+
+        <button class="filter-btn"
+                onclick="filterGallery('food', this)">
+            Food
+        </button>
+
+        <button class="filter-btn"
+                onclick="filterGallery('music', this)">
+            Music
+        </button>
+
+        <button class="filter-btn"
+                onclick="filterGallery('culture', this)">
+            Culture
+        </button>
+
+    </div>
+
+
+    <!-- IMAGES -->
+
+    <div class="gallery-grid">
+
+
+        <div class="gallery-item large"
+             data-category="battle">
+
+            <img src="{% static 'assets/img/choma/img.png' %}"
+                 alt="Mega Choma Battle">
+
+            <div class="gallery-overlay">
+
+                <div class="overlay-content">
+
+                    <h3>
+                        Mega Choma Battle
+                    </h3>
+
+                    <p>
+                        Battle
+                    </p>
+
+                </div>
+
+                <div class="view-icon">
+                    <i class="fa-solid fa-expand"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item"
+             data-category="food">
+
+            <img src="{% static 'assets/img/choma/img_1.png' %}"
+                 alt="Choma Experience">
+
+            <div class="gallery-overlay">
+
+                <div class="overlay-content">
+
+                    <h3>
+                        Choma Experience
+                    </h3>
+
+                    <p>
+                        Food
+                    </p>
+
+                </div>
+
+                <div class="view-icon">
+                    <i class="fa-solid fa-expand"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item"
+             data-category="music">
+
+             <img src="{% static 'assets/img/choma/img_2.png' %}"
+                 alt="Live Music">
+
+            <div class="gallery-overlay">
+
+                <div class="overlay-content">
+
+                    <h3>
+                        Live Music
+                    </h3>
+
+                    <p>
+                        Entertainment
+                    </p>
+
+                </div>
+
+                <div class="view-icon">
+                    <i class="fa-solid fa-expand"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item"
+             data-category="culture">
+
+            <img src="{% static 'assets/img/choma/img_3.png' %}"
+                 alt="African Culture">
+
+            <div class="gallery-overlay">
+
+                <div class="overlay-content">
+
+                    <h3>
+                        African Culture
+                    </h3>
+
+                    <p>
+                        Culture
+                    </p>
+
+                </div>
+
+                <div class="view-icon">
+                    <i class="fa-solid fa-expand"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item large"
+             data-category="food">
+
+             <img src="{% static 'assets/img/choma/img_4.png' %}"
+                 alt="Food Festival">
+
+            <div class="gallery-overlay">
+
+                <div class="overlay-content">
+
+                    <h3>
+                        Taste Of Africa
+                    </h3>
+
+                    <p>
+                        Food
+                    </p>
+
+                </div>
+
+                <div class="view-icon">
+                    <i class="fa-solid fa-expand"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item"
+             data-category="battle">
+
+             <img src="{% static 'assets/img/choma/img_5.png' %}"
+                 alt="Competition">
+
+            <div class="gallery-overlay">
+
+                <div class="overlay-content">
+
+                    <h3>
+                        The Competition
+                    </h3>
+
+                    <p>
+                        Battle
+                    </p>
+
+                </div>
+
+                <div class="view-icon">
+                    <i class="fa-solid fa-expand"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item"
+             data-category="music">
+
+             <img src="{% static 'assets/img/choma/img_6.png' %}"
+                 alt="Entertainment">
+
+            <div class="gallery-overlay">
+
+                <div class="overlay-content">
+
+                    <h3>
+                        Live Entertainment
+                    </h3>
+
+                    <p>
+                        Music
+                    </p>
+
+                </div>
+
+                <div class="view-icon">
+                    <i class="fa-solid fa-expand"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item"
+             data-category="culture">
+
+             <img src="{% static 'assets/img/choma/img.png' %}"
+                 alt="MoticAfrica Culture">
+
+            <div class="gallery-overlay">
+
+                <div class="overlay-content">
+
+                    <h3>
+                        African Vibes
+                    </h3>
+
+                    <p>
+                        Culture
+                    </p>
+
+                </div>
+
+                <div class="view-icon">
+                    <i class="fa-solid fa-expand"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <h2>
+        Want To Be Part Of It?
+    </h2>
+
+    <p>
+        Register your team and become part of the Kenya Mega Choma Battle.
+        Bring your people, bring your energy and bring the flavour.
+    </p>
+
+    <a href="{% url 'team_registration' %}" class="cta-btn">
+
+        <i class="fa-solid fa-fire"></i>
+
+        Register Your Team
+
+    </a>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026
+    <span>MoticAfrica</span>.
+    Kenya Mega Choma Battle.
+
+</footer>
+
+
+<script>
+
+    function toggleMenu() {
+
+        document
+            .getElementById("navLinks")
+            .classList
+            .toggle("show");
+
+    }
+
+
+    function filterGallery(category, button) {
+
+        const items =
+            document.querySelectorAll(".gallery-item");
+
+        const buttons =
+            document.querySelectorAll(".filter-btn");
+
+
+        buttons.forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+
+        button.classList.add("active");
+
+
+        items.forEach(item => {
+
+            if (
+                category === "all" ||
+                item.dataset.category === category
+            ) {
+
+                item.style.display = "block";
+
+            } else {
+
+                item.style.display = "none";
+
+            }
+
+        });
+
+    }
+
+</script>
+
+</body>
+
+</html>

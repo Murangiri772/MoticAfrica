@@ -1,0 +1,182 @@
+
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Team Registered | MoticAfrica</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background:
+                linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.75)),
+                url("{% static 'images/choma-bg.jpg' %}") center/cover no-repeat;
+            padding: 20px;
+        }
+
+        .success-card {
+            width: 100%;
+            max-width: 600px;
+            background: #fff;
+            border-radius: 25px;
+            padding: 45px 35px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,.35);
+        }
+
+        .success-icon {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            background: #16a34a;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+        }
+
+        h1 {
+            font-size: 34px;
+            color: #222;
+            margin-bottom: 12px;
+        }
+
+        .message {
+            color: #666;
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .info-box {
+            background: #fff8df;
+            border-left: 5px solid #f5b400;
+            padding: 18px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            color: #555;
+            text-align: left;
+        }
+
+        .info-box i {
+            color: #f5b400;
+            margin-right: 8px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            transition: .3s;
+        }
+
+        .btn-primary {
+            background: #f5b400;
+            color: #111;
+        }
+
+        .btn-secondary {
+            background: #222;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            opacity: .9;
+        }
+
+        .brand {
+            margin-top: 28px;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .brand strong {
+            color: #f5b400;
+        }
+
+        @media (max-width: 600px) {
+            .success-card {
+                padding: 35px 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="success-card">
+
+    <div class="success-icon">
+        <i class="fa-solid fa-check"></i>
+    </div>
+
+    <div class="info-box">
+    <i class="fa-solid fa-ticket"></i>
+
+    Your registration number is:
+
+    <strong>{{ team.ticket_number }}</strong>
+</div>
+
+    <div class="buttons">
+
+    <a href="{% url 'team_ticket' team.id %}" class="btn btn-primary">
+    <i class="fa-solid fa-ticket"></i>
+    View Team Ticket
+    </a>
+
+    <a href="{% url 'team_registration' %}" class="btn btn-secondary">
+        <i class="fa-solid fa-users"></i>
+        Register Another Team
+    </a>
+
+   </div>
+
+    <div class="brand">
+        Powered by <strong>MoticAfrica</strong>
+    </div>
+
+</div>
+
+</body>
+</html>

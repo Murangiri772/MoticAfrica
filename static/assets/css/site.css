@@ -1,0 +1,48 @@
+.selected-ticket {
+    background: #161616;
+    border: 1px solid #ffd000;
+    border-radius: 18px;
+    padding: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.selected-ticket span {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.selected-ticket h2 {
+    color: #fff;
+    margin: 8px 0;
+    font-size: 28px;
+}
+
+.selected-price {
+    color: #ffd000;
+    font-size: 30px;
+    font-weight: 900;
+    margin-top: 10px;
+}
+
+
+.total-box {
+    margin: 25px 0;
+    padding: 20px;
+    border-radius: 16px;
+    background: #161616;
+    border: 1px solid #ffd000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total-box span {
+    color: #aaa;
+    font-size: 16px;
+}
+
+.total-box strong {
+    color: #ffd000;
+    font-size: 24px;
+}
