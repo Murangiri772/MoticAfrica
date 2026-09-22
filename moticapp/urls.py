@@ -1,12 +1,12 @@
 
-from django.contrib import admin
+
 from django.urls import path
 
 
 from moticapp import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+
     path('', views.index, name='index'),
     path('starter/', views.starter, name='starter'),
 
@@ -54,6 +54,16 @@ urlpatterns = [
       views.ticket_qr,
       name='ticket_qr'
       ),
+path(
+    'team/payment/<int:team_id>/',
+    views.team_payment,
+    name='team_payment'
+),
+path(
+    'tickets/payment/<int:ticket_id>/',
+    views.ticket_payment,
+    name='ticket_payment'
+),
 
 
 

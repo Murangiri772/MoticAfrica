@@ -860,14 +860,27 @@
 
                 </ul>
 
-                <a href="{% url 'team_registration' %}"
-                   class="register-btn ms-lg-3 desktop-register">
+                {% if user.is_authenticated %}
 
-                    Register Your Team
+    <span class="text-white me-3">
+         {{ user.username }}
+    </span>
 
-                    <i class="bi bi-arrow-right"></i>
+    <a href="{% url 'logout' %}" class="btn-motic ms-2">
+        Logout
+    </a>
 
-                </a>
+{% else %}
+
+    <a href="{% url 'login' %}" class="btn-motic">
+        Login
+    </a>
+
+    <a href="{% url 'register' %}" class="btn-motic ms-2">
+        Register
+    </a>
+
+{% endif %}
 
             </div>
 

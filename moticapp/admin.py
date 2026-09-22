@@ -1,32 +1,30 @@
 
 
 from django.contrib import admin
-from .models import Team, TicketBooking
+from .models import  TicketBooking
+
+from django.contrib import admin
+from .models import Team
 
 
 @admin.register(Team)
 class TeamAdmin(admin.ModelAdmin):
+
     list_display = (
         'team_name',
         'captain_name',
         'county',
         'number_of_members',
-        'ticket_number',
-        'payment_amount',
-        'payment_status',
-        'payment_reference',
+        'user',
+        'email',
         'created_at',
     )
 
     search_fields = (
         'team_name',
         'captain_name',
-        'phone_number',
         'email',
-        'county',
-        'ticket_number',
-        'payment_reference',
-        'payment_status',
+        'user__username',
     )
 
     list_filter = (
@@ -34,14 +32,7 @@ class TeamAdmin(admin.ModelAdmin):
         'created_at',
     )
 
-    ordering = (
-        '-created_at',
-    )
-
-    readonly_fields = (
-        'ticket_number',
-        'created_at',
-    )
+    ordering = ('-created_at',)
 
 
 @admin.register(TicketBooking)

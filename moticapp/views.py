@@ -6,6 +6,12 @@ import qrcode
 from io import BytesIO
 from django.http import HttpResponse
 
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404
+from .models import Team
+from .models import TicketBooking
+
+
 
 def index(request):
     return render(request, 'index.html')
@@ -26,18 +32,22 @@ def contact(request):
 
 
 
+@login_required
 def team_registration(request):
 
     if request.method == 'POST':
+
         form = TeamRegistrationForm(request.POST)
 
         if form.is_valid():
-            team = form.save()
 
-            return redirect(
-                'team_success',
-                team_id=team.id
-            )
+            team = form.save(commit=False)
+
+            team.user = request.user
+
+            team.save()
+
+        return redirect('team_payment', team_id=team.id)
 
     else:
         form = TeamRegistrationForm()
@@ -45,7 +55,6 @@ def team_registration(request):
     return render(request, 'team_registration.html', {
         'form': form
     })
-
 
 def team_success(request, team_id):
 
@@ -186,3 +195,37 @@ def verify_ticket(request, booking_reference):
             'valid': False,
             'not_found': True
         })
+
+
+@login_required
+def team_payment(request, team_id):
+
+    team = get_object_or_404(
+        Team,
+        id=team_id,
+        user=request.user
+    )
+
+    return render(request, 'team_payment.html', {
+        'team': team,
+        'amount': team.payment_amount
+    })
+
+
+
+@login_required
+def ticket_payment(request, ticket_id):
+    ticket = get_object_or_404(
+        TicketBooking
+        ,
+        id=ticket_id,
+        user=request.user
+    )
+
+    return render(request, 'ticket_payment.html', {
+        'ticket': ticket,
+        'amount': ticket.amount,
+    })
+
+
+
