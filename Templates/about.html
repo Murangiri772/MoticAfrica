@@ -528,83 +528,57 @@
      BY NUMBERS
 ========================================================= -->
 
-<section class="motic-numbers">
+<section class="motic-stats">
 
     <div class="container">
 
-        <div class="motic-heading text-center">
+        <div class="motic-stats-grid">
 
-            <span class="motic-section-label">
-                BY THE NUMBERS
-            </span>
-
-            <h2>
-                Built For
-                <span>Impact.</span>
-            </h2>
-
-        </div>
-
-
-        <div class="row gy-4 mt-4">
-
-            <div class="col-lg-3 col-md-6">
-
-                <div class="motic-number-card">
-
-                    <strong>50+</strong>
-
-                    <span>
-                        Corporate Grills
-                    </span>
-
+            <div class="motic-stat-card">
+                <div class="motic-stat-icon">
+                    <i class="bi bi-fire"></i>
                 </div>
 
+                <div class="motic-stat-content">
+                    <h3>50<span>+</span></h3>
+                    <p>Corporate Grills</p>
+                </div>
             </div>
 
 
-            <div class="col-lg-3 col-md-6">
-
-                <div class="motic-number-card">
-
-                    <strong>50+</strong>
-
-                    <span>
-                        Business Exhibitors
-                    </span>
-
+            <div class="motic-stat-card">
+                <div class="motic-stat-icon">
+                    <i class="bi bi-shop"></i>
                 </div>
 
+                <div class="motic-stat-content">
+                    <h3>50<span>+</span></h3>
+                    <p>Business Exhibitors</p>
+                </div>
             </div>
 
 
-            <div class="col-lg-3 col-md-6">
-
-                <div class="motic-number-card">
-
-                    <strong>5,000+</strong>
-
-                    <span>
-                        Meat Lovers Expected
-                    </span>
-
+            <div class="motic-stat-card">
+                <div class="motic-stat-icon">
+                    <i class="bi bi-people"></i>
                 </div>
 
+                <div class="motic-stat-content">
+                    <h3>5K<span>+</span></h3>
+                    <p>Meat Lovers Expected</p>
+                </div>
             </div>
 
 
-            <div class="col-lg-3 col-md-6">
-
-                <div class="motic-number-card">
-
-                    <strong>70%</strong>
-
-                    <span>
-                        Grill Slots for Youth & Hustlers
-                    </span>
-
+            <div class="motic-stat-card">
+                <div class="motic-stat-icon">
+                    <i class="bi bi-lightning-charge"></i>
                 </div>
 
+                <div class="motic-stat-content">
+                    <h3>70<span>%</span></h3>
+                    <p>Youth &amp; Hustler Slots</p>
+                </div>
             </div>
 
         </div>
@@ -613,6 +587,175 @@
 
 </section>
 
+<style>
+
+/* ================================
+   MOTIC STAT SECTION
+================================ */
+
+section.motic-stats {
+    padding: 70px 0;
+    width: 100%;
+}
+
+
+/* GRID */
+
+section.motic-stats .motic-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+
+/* CARD */
+
+section.motic-stats .motic-stat-card {
+    position: relative;
+
+    min-height: 210px;
+
+    padding: 25px;
+
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+
+    background: #151515 !important;
+
+    border: 1px solid rgba(245, 180, 0, .18) !important;
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    transition: all .3s ease;
+}
+
+
+/* CARD HOVER */
+
+section.motic-stats .motic-stat-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #f5b400 !important;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.35),
+        0 0 25px rgba(245,180,0,.08);
+}
+
+
+/* ICON */
+
+section.motic-stats .motic-stat-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(245,180,0,.10) !important;
+
+    border: 1px solid rgba(245,180,0,.25);
+
+    border-radius: 14px;
+
+    color: #f5b400 !important;
+
+    font-size: 20px;
+}
+
+
+/* CONTENT */
+
+section.motic-stats .motic-stat-content {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+
+/* NUMBER */
+
+section.motic-stats .motic-stat-content h3 {
+    display: block !important;
+    visibility: visible !important;
+
+    margin: 18px 0 5px !important;
+
+    color: #ffffff !important;
+
+    font-size: 42px !important;
+    line-height: 1 !important;
+
+    font-weight: 800 !important;
+}
+
+
+/* + AND % */
+
+section.motic-stats .motic-stat-content h3 span {
+    color: #f5b400 !important;
+}
+
+
+/* DESCRIPTION */
+
+section.motic-stats .motic-stat-content p {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    margin: 0 !important;
+
+    color: #ffffff !important;
+
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+
+    font-weight: 500 !important;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 991px) {
+
+    section.motic-stats .motic-stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 575px) {
+
+    section.motic-stats {
+        padding: 45px 0;
+    }
+
+    section.motic-stats .motic-stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    section.motic-stats .motic-stat-card {
+        min-height: 170px;
+        padding: 18px;
+    }
+
+    section.motic-stats .motic-stat-content h3 {
+        font-size: 31px !important;
+    }
+
+    section.motic-stats .motic-stat-content p {
+        font-size: 11px !important;
+    }
+
+}
+
+</style>
 
 <!-- =========================================================
      EVENT FEATURES
@@ -835,82 +978,234 @@
             community and unforgettable experiences.
         </p>
 
-        <div class="motic-sponsor-list">
+<div class="motic-sponsor-list">
 
-            <!-- Safaricom -->
-            <a href="#" class="motic-sponsor-card">
-                <div class="sponsor-logo">
-                    <img src="{% static 'assets/img/safaricom.png' %}"
-                         alt="Safaricom">
-                </div>
-                <span>Safaricom</span>
-            </a>
-
-            <!-- Tusker -->
-            <a href="#" class="motic-sponsor-card">
-                <div class="sponsor-logo">
-                    <img src="{% static 'assets/img/tusker.png' %}"
-                         alt="Tusker">
-                </div>
-                <span>Tusker</span>
-            </a>
-
-            <!-- Naivas -->
-            <a href="#" class="motic-sponsor-card">
-                <div class="sponsor-logo">
-                    <img src="{% static 'assets/img/naivas.png' %}"
-                         alt="Naivas">
-                </div>
-                <span>Naivas</span>
-            </a>
-
+    <!-- Safaricom -->
+    <a href="#" class="motic-sponsor-btn" aria-label="Safaricom">
+        <div class="sponsor-icon">
+            <img src="{% static 'assets/img/safaricom.png' %}" alt="Safaricom">
         </div>
+        <div class="sponsor-info">
+            <strong>Safaricom</strong>
+            <small>Official Sponsor</small>
+        </div>
+        <i class="bi bi-arrow-up-right"></i>
+    </a>
+
+    <!-- Tusker -->
+    <a href="#" class="motic-sponsor-btn" aria-label="Tusker">
+        <div class="sponsor-icon">
+            <img src="{% static 'assets/img/tusker.png' %}" alt="Tusker">
+        </div>
+        <div class="sponsor-info">
+            <strong>Tusker</strong>
+            <small>Official Sponsor</small>
+        </div>
+        <i class="bi bi-arrow-up-right"></i>
+    </a>
+
+    <!-- Naivas -->
+    <a href="#" class="motic-sponsor-btn" aria-label="Naivas">
+        <div class="sponsor-icon">
+            <img src="{% static 'assets/img/naivas.png' %}" alt="Naivas">
+        </div>
+        <div class="sponsor-info">
+            <strong>Naivas</strong>
+            <small>Official Sponsor</small>
+        </div>
+        <i class="bi bi-arrow-up-right"></i>
+    </a>
+
+</div>
+
+<style>
+.motic-sponsor-list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 30px auto;
+}
+
+.motic-sponsor-btn {
+    position: relative;
+    width: 240px;
+    min-height: 88px;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 13px 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.09),
+            rgba(255,255,255,.025)
+        );
+
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 18px;
+
+    color: #fff;
+    text-decoration: none;
+
+    overflow: hidden;
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
+}
+
+/* subtle orange light */
+.motic-sponsor-btn::before {
+    content: "";
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    top: -45px;
+    left: -45px;
+
+    background: rgba(245,180,0,.18);
+    border-radius: 50%;
+
+    filter: blur(20px);
+    transition: .3s ease;
+}
+
+/* logo container */
+.sponsor-icon {
+    position: relative;
+    z-index: 2;
+
+    width: 58px;
+    height: 58px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff;
+    border-radius: 14px;
+
+    padding: 8px;
+
+    box-shadow: 0 6px 20px rgba(0,0,0,.25);
+}
+
+.sponsor-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* text */
+.sponsor-info {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    flex: 1;
+}
+
+.sponsor-info strong {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .2px;
+}
+
+.sponsor-info small {
+    font-size: 10px;
+    color: rgba(255,255,255,.55);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* arrow */
+.motic-sponsor-btn > i {
+    position: relative;
+    z-index: 2;
+
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 50%;
+
+    color: rgba(255,255,255,.6);
+    font-size: 12px;
+
+    transition: .3s ease;
+}
+
+/* hover */
+.motic-sponsor-btn:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(245,180,0,.65);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(245,180,0,.12),
+            rgba(255,255,255,.035)
+        );
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.35),
+        0 0 25px rgba(245,180,0,.08);
+
+    color: #fff;
+}
+
+.motic-sponsor-btn:hover::before {
+    transform: scale(1.6);
+    background: rgba(255,107,0,.22);
+}
+
+.motic-sponsor-btn:hover > i {
+    background: #f5b400;
+    border-color: #f5b400;
+    color: #111;
+    transform: rotate(45deg);
+}
+
+/* mobile */
+@media (max-width: 600px) {
+
+    .motic-sponsor-list {
+        gap: 12px;
+        padding: 0 12px;
+    }
+
+    .motic-sponsor-btn {
+        width: 100%;
+        max-width: 330px;
+    }
+}
+</style>
+
+
 
     </div>
 </section>
 <!-- =========================================================
      FINAL CTA
 ========================================================= -->
-
-<section class="motic-about-cta">
-
-    <div class="container">
-
-        <div class="motic-cta-inner text-center">
-
-            <span class="motic-section-label">
-                MOTIC AFRICA
-            </span>
-
-            <h2>
-                Come Taste The Heat,
-                <span>Feel The Heat!</span>
-            </h2>
-
-            <p>
-                Join us as we celebrate adventure, food, music,
-                culture and the people behind Kenya's BBQ culture.
-            </p>
-
-            <div class="motic-cta-buttons">
-
-                <a href="{% url 'contact' %}" class="motic-about-btn">
-                    Get In Touch
-                    <i class="bi bi-arrow-right"></i>
-                </a>
-
-                <a href="{% url 'battle' %}" class="motic-about-btn outline">
-                    See The Choma Battle
-                    <i class="bi bi-fire"></i>
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
 
 
 <!-- =========================================================
@@ -1868,125 +2163,6 @@
         font-size: 22px;
     }
 
-}
-    /* =========================
-   MOTIC SPONSORS
-========================= */
-
-.motic-sponsors {
-    padding: 90px 0;
-    background: linear-gradient(135deg, #fffaf0 0%, #ffffff 50%, #fff3d6 100%);
-    position: relative;
-    overflow: hidden;
-}
-
-.motic-section-label {
-    display: inline-block;
-    color: #f5b400;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
-}
-
-.motic-sponsors h2 {
-    color: #fff;
-    font-size: 44px;
-    font-weight: 800;
-    margin-bottom: 15px;
-}
-
-.motic-sponsors h2 span {
-    color: #f5b400;
-}
-
-.motic-sponsors-intro {
-    max-width: 650px;
-    margin: 0 auto 45px;
-    color: #aaa;
-    font-size: 16px;
-    line-height: 1.7;
-}
-
-/* Sponsor cards */
-
-.motic-sponsor-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    max-width: 1000px;
-    margin: auto;
-}
-
-.motic-sponsor-card {
-    min-height: 120px;
-    padding: 30px 25px;
-    border: 1px solid rgba(245, 180, 0, 0.25);
-    border-radius: 18px;
-    background: grey;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.motic-sponsor-card:hover {
-    transform: translateY(-8px);
-    border-color: grey;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
-    background: blue;
-}
-
-.sponsor-logo {
-    width: 150px;
-    height: 90px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: yellow;
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 18px;
-}
-
-.sponsor-logo img {
-    max-width: 100%;
-    max-height: 65px;
-    object-fit: contain;
-}
-
-.motic-sponsor-card span {
-    color: brown;
-    font-size: 17px;
-    font-weight: 700;
-}
-
-/* Mobile */
-
-@media (max-width: 768px) {
-
-    .motic-sponsors {
-        padding: 70px 20px;
-    }
-
-    .motic-sponsors h2 {
-        font-size: 34px;
-    }
-
-    .motic-sponsor-list {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-    }
-
-    .motic-sponsor-card {
-        min-height: 170px;
-    }
 }
 
 </style>
