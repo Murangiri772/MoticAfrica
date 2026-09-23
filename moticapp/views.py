@@ -13,8 +13,7 @@ def contact(request):
     return render(request, 'contact.html')
 
 
-def teams(request):
-    return render(request, 'teams.html')
+
 
 
 def battle(request):
@@ -25,5 +24,3 @@ def gallery(request):
     return render(request, 'gallery.html')
 
 
-def tickets(request):
-    return render(request, 'tickets.html')

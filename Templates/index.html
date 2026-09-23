@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
@@ -7,15 +6,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>MoticAfrica | Kenya Mega Choma Battle</title>
+    <title>Motic Africa | Igniting Adventure & Africa's BBQ Culture</title>
 
     <meta name="description"
-          content="MoticAfrica presents the Kenya Mega Choma Battle — food, music, culture, entertainment and unforgettable experiences.">
+          content="Motic Africa `is a Nairobi-based adventure, events, culture and lifestyle company celebrating African flame culture through premium, family-friendly experiences.">
 
-    <!-- Favicon -->
     <link rel="icon" href="{% static 'assets/img/favicon.png' %}">
 
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -32,857 +30,2879 @@
     <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
 
 
-    <style>
-
-        :root {
-            --black: #080808;
-            --dark: #111111;
-            --dark-2: #181818;
-            --yellow: #f5b400;
-            --orange: #ff6500;
-            --white: #ffffff;
-            --grey: #aaaaaa;
-            --light: #f7f7f7;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "Montserrat", sans-serif;
-            color: #222;
-            background: #fff;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5 {
-            font-family: "Poppins", sans-serif;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-
-        /* =========================
-           HEADER
-        ========================= */
-
-        .motic-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 9999;
-            background: rgba(5, 5, 5, .94);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255,255,255,.08);
-        }
-
-        .navbar {
-            min-height: 78px;
-        }
-
-        .brand {
-            color: var(--yellow);
-            font-family: "Poppins", sans-serif;
-            font-size: 28px;
-            font-weight: 900;
-            letter-spacing: -1px;
-        }
-
-        .brand span {
-            color: #fff;
-        }
-
-        .nav-link {
-            color: #fff !important;
-            font-weight: 600;
-            margin: 0 7px;
-            transition: .3s;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--yellow) !important;
-        }
-
-        .register-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px 22px;
-            border-radius: 30px;
-            background: linear-gradient(135deg, var(--yellow), var(--orange));
-            color: #111;
-            font-weight: 800;
-            transition: .3s;
-        }
-
-        .register-btn:hover {
-            color: #111;
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(245,180,0,.25);
-        }
-
+<style>
+
+/* =========================================================
+   MOTIC AFRICA — PREMIUM HOMEPAGE
+========================================================= */
 
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            min-height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(0,0,0,.92) 0%,
-                    rgba(0,0,0,.78) 42%,
-                    rgba(0,0,0,.40) 100%
-                ),
-                url("{% static 'assets/img/choma/img.png' %}");
-
-            background-size: cover;
-            background-position: center;
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                0deg,
-                rgba(0,0,0,.75),
-                transparent 35%
-            );
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            padding-top: 100px;
-            padding-bottom: 100px;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            padding: 9px 17px;
-            border-radius: 30px;
-            color: var(--yellow);
-            border: 1px solid rgba(245,180,0,.5);
-            background: rgba(245,180,0,.10);
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            margin-bottom: 25px;
-        }
-
-        .hero-badge i {
-            font-size: 18px;
-        }
-
-        .hero h1 {
-            max-width: 850px;
-            color: #fff;
-            font-size: clamp(48px, 7vw, 88px);
-            line-height: 1;
-            font-weight: 900;
-            letter-spacing: -3px;
-            margin-bottom: 25px;
-        }
-
-        .hero h1 span {
-            color: var(--yellow);
-            display: block;
-        }
-
-        .hero-text {
-            max-width: 650px;
-            color: rgba(255,255,255,.82);
-            font-size: 18px;
-            line-height: 1.8;
-            margin-bottom: 32px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-        }
-
-        .hero-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            padding: 15px 27px;
-            border-radius: 30px;
-            background: linear-gradient(135deg, var(--yellow), var(--orange));
-            color: #111;
-            font-weight: 800;
-            transition: .3s;
-        }
-
-        .hero-primary:hover {
-            color: #111;
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(245,180,0,.25);
-        }
-
-        .hero-outline {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            padding: 14px 27px;
-            border: 1px solid rgba(255,255,255,.45);
-            border-radius: 30px;
-            color: #fff;
-            font-weight: 700;
-            transition: .3s;
-        }
-
-        .hero-outline:hover {
-            background: #fff;
-            color: #111;
-        }
-
-
-        /* HERO BOTTOM */
-
-        .hero-bottom {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            z-index: 5;
-            background: rgba(0,0,0,.60);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(255,255,255,.08);
-        }
-
-        .hero-info {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            padding: 20px 0;
-            gap: 20px;
-        }
-
-        .hero-info-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #fff;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .hero-info-item i {
-            color: var(--yellow);
-            font-size: 21px;
-        }
-
-
-        /* =========================
-           SECTION COMMON
-        ========================= */
-
-        .section {
-            padding: 100px 0;
-        }
-
-        .section-label {
-            display: inline-block;
-            color: var(--orange);
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        .section-title {
-            font-size: clamp(32px, 5vw, 48px);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 18px;
-        }
-
-        .section-description {
-            color: #777;
-            line-height: 1.8;
-            max-width: 650px;
-        }
-
-
-        /* =========================
-           ABOUT
-        ========================= */
-
-        .about-section {
-            background: #fff;
-        }
-
-        .about-image {
-            position: relative;
-            border-radius: 25px;
-            overflow: hidden;
-            min-height: 470px;
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 470px;
-            object-fit: cover;
-        }
-
-        .image-badge {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background: var(--yellow);
-            color: #111;
-            padding: 15px 20px;
-            border-radius: 13px;
-            font-weight: 900;
-        }
-
-        .about-content {
-            padding-left: 20px;
-        }
-
-        .about-content p {
-            color: #666;
-            line-height: 1.85;
-            margin-bottom: 18px;
-        }
-
-
-        /* =========================
-           EXPERIENCE
-        ========================= */
-
-        .experience-section {
-            background: var(--light);
-        }
-
-        .center-heading {
-            text-align: center;
-            margin-bottom: 55px;
-        }
-
-        .center-heading .section-description {
-            margin: auto;
-        }
-
-        .experience-card {
-            height: 100%;
-            padding: 32px;
-            border-radius: 20px;
-            background: #fff;
-            border: 1px solid #eee;
-            transition: .35s;
-        }
-
-        .experience-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 45px rgba(0,0,0,.10);
-        }
-
-        .experience-icon {
-            width: 62px;
-            height: 62px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 16px;
-            background: rgba(245,180,0,.13);
-            color: var(--orange);
-            font-size: 28px;
-            margin-bottom: 22px;
-        }
-
-        .experience-card h3 {
-            font-size: 21px;
-            font-weight: 800;
-            margin-bottom: 12px;
-        }
-
-        .experience-card p {
-            color: #777;
-            line-height: 1.7;
-            margin: 0;
-        }
-
-
-        /* =========================
-           BATTLE
-        ========================= */
-
-        .battle-section {
-            background: var(--dark);
-            color: #fff;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .battle-section::before {
-            content: "CHOMA";
-            position: absolute;
-            right: -50px;
-            top: 30px;
-            font-size: 160px;
-            font-weight: 900;
-            color: rgba(255,255,255,.025);
-        }
-
-        .battle-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .battle-content .section-title {
-            color: #fff;
-        }
-
-        .battle-content .section-description {
-            color: #aaa;
-        }
-
-        .battle-list {
-            list-style: none;
-            padding: 0;
-            margin: 30px 0 0;
-        }
-
-        .battle-list li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-            color: #ddd;
-        }
-
-        .battle-list i {
-            color: var(--yellow);
-            font-size: 19px;
-        }
-
-        .battle-card {
-            position: relative;
-            z-index: 2;
-            padding: 40px;
-            border-radius: 25px;
-            background: linear-gradient(145deg, #242424, #101010);
-            border: 1px solid rgba(255,255,255,.09);
-        }
-
-        .battle-icon {
-            font-size: 55px;
-            color: var(--yellow);
-            margin-bottom: 20px;
-        }
-
-        .battle-card h3 {
-            font-size: 29px;
-            font-weight: 800;
-            margin-bottom: 15px;
-        }
-
-        .battle-card p {
-            color: #aaa;
-            line-height: 1.8;
-        }
-
-
-        /* =========================
-           STATS
-        ========================= */
-
-        .stats {
-            background: var(--yellow);
-            padding: 65px 0;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat h3 {
-            font-size: 44px;
-            font-weight: 900;
-            margin: 0;
-        }
-
-        .stat p {
-            margin: 5px 0 0;
-            font-weight: 700;
-        }
-
-
-        /* =========================
-           GALLERY
-        ========================= */
-
-        .gallery-section {
-            background: #fff;
-        }
-
-        .gallery-card {
-            position: relative;
-            height: 270px;
-            overflow: hidden;
-            border-radius: 18px;
-        }
-
-        .gallery-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: .5s;
-        }
-
-        .gallery-card:hover img {
-            transform: scale(1.08);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: flex-end;
-            padding: 20px;
-            background: linear-gradient(transparent, rgba(0,0,0,.75));
-            color: #fff;
-            font-weight: 800;
-        }
-
-
-        /* =========================
-           CTA
-        ========================= */
-
-        .cta-section {
-            padding: 110px 0;
-            text-align: center;
-            background:
-                linear-gradient(
-                    rgba(0,0,0,.82),
-                    rgba(0,0,0,.82)
-                ),
-                url("{% static 'assets/img/bg/bg-8.webp' %}");
-
-            background-size: cover;
-            background-position: center;
-        }
-
-        .cta-section h2 {
-            color: #fff;
-            font-size: clamp(36px, 5vw, 55px);
-            font-weight: 900;
-        }
-
-        .cta-section p {
-            max-width: 650px;
-            margin: 15px auto 30px;
-            color: #ccc;
-            line-height: 1.8;
-        }
-
-
-        /* =========================
-           FAQ
-        ========================= */
-
-        .faq-section {
-            background: #f8f8f8;
-        }
-
-        .faq {
-            max-width: 850px;
-            margin: auto;
-        }
-
-        .faq-item {
-            background: #fff;
-            border-radius: 12px;
-            margin-bottom: 12px;
-            overflow: hidden;
-            border: 1px solid #eee;
-        }
-
-        .faq-question {
-            width: 100%;
-            border: 0;
-            background: #fff;
-            padding: 20px 22px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            text-align: left;
-            font-weight: 800;
-            cursor: pointer;
-        }
-
-        .faq-question i {
-            color: var(--orange);
-            transition: .3s;
-        }
-
-        .faq-answer {
-            display: none;
-            padding: 0 22px 20px;
-            color: #777;
-            line-height: 1.7;
-        }
-
-        .faq-item.open .faq-answer {
-            display: block;
-        }
-
-        .faq-item.open .faq-question i {
-            transform: rotate(180deg);
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            background: #080808;
-            color: #fff;
-            padding: 75px 0 25px;
-        }
-
-        .footer-brand {
-            color: var(--yellow);
-            font-size: 29px;
-            font-weight: 900;
-        }
-
-        footer p {
-            color: #999;
-            line-height: 1.8;
-        }
-
-        footer h4 {
-            font-size: 17px;
-            margin-bottom: 20px;
-        }
-
-        footer ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        footer li {
-            margin-bottom: 10px;
-        }
-
-        footer a {
-            color: #999;
-            transition: .3s;
-        }
-
-        footer a:hover {
-            color: var(--yellow);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            border: 1px solid #333;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #252525;
-            margin-top: 50px;
-            padding-top: 25px;
-            text-align: center;
-            color: #666;
-        }
-
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 991px) {
-
-            .desktop-register {
-                display: none;
-            }
-
-            .about-content {
-                padding-left: 0;
-            }
-
-            .hero-info {
-                justify-content: flex-start;
-            }
-        }
-
-        @media (max-width: 768px) {
-
-            .hero {
-                background-position: center;
-            }
-
-            .hero h1 {
-                font-size: 48px;
-                letter-spacing: -2px;
-            }
-
-            .hero-text {
-                font-size: 15px;
-            }
-
-            .hero-bottom {
-                display: none;
-            }
-
-            .about-image,
-            .about-image img {
-                min-height: 350px;
-                height: 350px;
-            }
-
-            .section {
-                padding: 75px 0;
-            }
-
-            .battle-card {
-                padding: 30px;
-            }
-        }
-
-    </style>
+:root {
+    --black: #070707;
+    --black2: #0d0d0d;
+    --dark: #121212;
+    --dark2: #1b1b1b;
+
+    --yellow: #f5b400;
+    --yellow2: #ffd33d;
+    --orange: #ff6500;
+
+    --cream: #fff8e8;
+    --white: #ffffff;
+
+    --text: #222222;
+    --muted: #777777;
+    --line: #eeeeee;
+
+    --radius-lg: 28px;
+    --radius-md: 20px;
+
+    --shadow:
+        0 20px 60px rgba(0,0,0,.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    color: var(--text);
+    background: #fff;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Poppins", sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+::selection {
+    background: var(--yellow);
+    color: #111;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.motic-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 9999;
+
+    background: rgba(7,7,7,.82);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+
+    transition: .35s;
+}
+
+.motic-header.scrolled {
+    background: rgba(5,5,5,.96);
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.25);
+}
+
+.navbar {
+    min-height: 82px;
+}
+
+.brand {
+    color: var(--yellow);
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 28px;
+
+    font-weight: 900;
+
+    letter-spacing: -1.5px;
+}
+
+.brand span {
+    color: #fff;
+}
+
+.brand small {
+    display: block;
+
+    color: rgba(255,255,255,.45);
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    font-weight: 700;
+
+    margin-top: -4px;
+}
+
+.navbar-toggler {
+    border: 0;
+    box-shadow: none !important;
+}
+
+.nav-link {
+    color: rgba(255,255,255,.82) !important;
+
+    font-weight: 600;
+
+    font-size: 13px;
+
+    margin: 0 5px;
+
+    padding: 9px 10px !important;
+
+    border-radius: 8px;
+
+    transition: .3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--yellow) !important;
+
+    background: rgba(245,180,0,.07);
+}
+
+.btn-motic {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 12px 21px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--yellow),
+            var(--orange)
+        );
+
+    color: #111 !important;
+
+    font-weight: 900;
+
+    font-size: 13px;
+
+    border: 0;
+
+    transition: .3s;
+
+    box-shadow:
+        0 8px 25px rgba(245,180,0,.12);
+}
+
+.btn-motic:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(245,180,0,.3);
+
+    color: #111 !important;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.97) 0%,
+            rgba(0,0,0,.88) 35%,
+            rgba(0,0,0,.58) 70%,
+            rgba(0,0,0,.38) 100%
+        ),
+        url("{% static 'assets/img/choma/img.png' %}");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    right: -250px;
+    top: -180px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(245,180,0,.25),
+            transparent 65%
+        );
+
+    filter: blur(20px);
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,.95),
+            transparent 45%
+        );
+
+    pointer-events: none;
+}
+
+.hero-grid {
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .08;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.2) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.2) 1px,
+            transparent 1px
+        );
+
+    background-size: 70px 70px;
+}
+
+.hero-content {
+    position: relative;
+
+    z-index: 5;
+
+    padding-top: 155px;
+    padding-bottom: 190px;
+}
+
+.hero-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 9px 17px;
+
+    border-radius: 50px;
+
+    color: var(--yellow);
+
+    background: rgba(245,180,0,.09);
+
+    border: 1px solid rgba(245,180,0,.4);
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 25px;
+}
+
+.hero-badge i {
+    font-size: 16px;
+}
+
+.hero h1 {
+    max-width: 900px;
+
+    color: #fff;
+
+    font-size: clamp(48px, 7vw, 88px);
+
+    line-height: .98;
+
+    font-weight: 900;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 28px;
+}
+
+.hero h1 span {
+    display: block;
+
+    color: var(--yellow);
+
+    text-shadow:
+        0 0 40px rgba(245,180,0,.15);
+}
+
+.hero-text {
+    max-width: 660px;
+
+    color: rgba(255,255,255,.75);
+
+    font-size: 17px;
+
+    line-height: 1.85;
+
+    margin-bottom: 32px;
+}
+
+.hero-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 13px;
+}
+
+.hero-primary,
+.hero-outline {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 15px 25px;
+
+    border-radius: 50px;
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    transition: .3s;
+}
+
+.hero-primary {
+    background:
+        linear-gradient(
+            135deg,
+            var(--yellow),
+            var(--orange)
+        );
+
+    color: #111;
+
+    box-shadow:
+        0 12px 35px rgba(245,180,0,.18);
+}
+
+.hero-primary:hover {
+    color: #111;
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 45px rgba(245,180,0,.35);
+}
+
+.hero-outline {
+    color: #fff;
+
+    border: 1px solid rgba(255,255,255,.3);
+
+    background: rgba(255,255,255,.04);
+}
+
+.hero-outline:hover {
+    color: #111;
+
+    background: #fff;
+
+    transform: translateY(-3px);
+}
+
+
+/* HERO EVENT CARD */
+
+.hero-event-wrap {
+    position: relative;
+
+    z-index: 5;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    padding-top: 80px;
+}
+
+.hero-event-card {
+    width: 360px;
+
+    padding: 27px;
+
+    border-radius: 26px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30,30,30,.94),
+            rgba(10,10,10,.9)
+        );
+
+    border: 1px solid rgba(255,255,255,.13);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.45);
+
+    backdrop-filter: blur(12px);
+
+    transform: rotate(2deg);
+
+    transition: .4s;
+}
+
+.hero-event-card:hover {
+    transform:
+        rotate(0deg)
+        translateY(-8px);
+}
+
+.hero-event-top {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+.hero-fire {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background: var(--yellow);
+
+    color: #111;
+
+    font-size: 25px;
+}
+
+.hero-event-label {
+    color: var(--yellow);
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.hero-event-card h3 {
+    color: #fff;
+
+    font-size: 27px;
+
+    font-weight: 900;
+
+    line-height: 1.1;
+
+    margin-bottom: 10px;
+}
+
+.hero-event-card p {
+    color: #999;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin-bottom: 20px;
+}
+
+.hero-event-details {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+}
+
+.hero-event-detail {
+    padding: 13px;
+
+    background: rgba(255,255,255,.045);
+
+    border: 1px solid rgba(255,255,255,.07);
+
+    border-radius: 13px;
+}
+
+.hero-event-detail i {
+    color: var(--yellow);
+
+    display: block;
+
+    margin-bottom: 5px;
+}
+
+.hero-event-detail strong {
+    color: #fff;
+
+    display: block;
+
+    font-size: 11px;
+}
+
+.hero-event-detail span {
+    color: #777;
+
+    font-size: 10px;
+}
+
+
+/* HERO BOTTOM */
+
+.hero-bottom {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 10;
+
+    background: rgba(0,0,0,.68);
+
+    backdrop-filter: blur(12px);
+
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.hero-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+    padding: 19px 0;
+}
+
+.hero-info-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: rgba(255,255,255,.85);
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+.hero-info-item i {
+    color: var(--yellow);
+
+    font-size: 19px;
+}
+
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.section {
+    padding: 110px 0;
+}
+
+.section-label {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--orange);
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 2.5px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 13px;
+}
+
+.section-label::before {
+    content: "";
+
+    width: 25px;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--yellow),
+            var(--orange)
+        );
+
+    border-radius: 10px;
+}
+
+.section-title {
+    font-size: clamp(34px,5vw,57px);
+
+    font-weight: 900;
+
+    line-height: 1.04;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 20px;
+}
+
+.section-title span {
+    color: var(--yellow);
+}
+
+.section-description {
+    color: #777;
+
+    line-height: 1.85;
+
+    max-width: 700px;
+}
+
+.center-heading {
+    text-align: center;
+
+    margin-bottom: 55px;
+}
+
+.center-heading .section-label {
+    justify-content: center;
+}
+
+.center-heading .section-description {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================================================
+   STORY / JOURNEY / MISSION / VISION
+========================================================= */
+
+.journey-section {
+    background:
+        linear-gradient(
+            135deg,
+            #fff9ec,
+            #fff
+        );
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.journey-section::before {
+    content: "MOTIC";
+
+    position: absolute;
+
+    right: -70px;
+    top: 20px;
+
+    font-size: 180px;
+
+    font-weight: 900;
+
+    color: rgba(0,0,0,.025);
+
+    pointer-events: none;
+}
+
+.story-track {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    gap: 22px;
+
+    overflow-x: auto;
+
+    padding: 10px 5px 28px;
+
+    scroll-snap-type: x mandatory;
+
+    cursor: grab;
+
+    scrollbar-width: none;
+}
+
+.story-track::-webkit-scrollbar {
+    display: none;
+}
+
+.story-track:active {
+    cursor: grabbing;
+}
+
+.story-card {
+    flex: 0 0 min(88vw, 390px);
+
+    min-height: 360px;
+
+    padding: 38px;
+
+    border-radius: 26px;
+
+    background: #fff;
+
+    border: 1px solid #eee;
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,.07);
+
+    scroll-snap-align: start;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: .35s;
+}
+
+.story-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.11);
+}
+
+.story-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    right: -70px;
+    bottom: -70px;
+
+    border-radius: 50%;
+
+    background: rgba(245,180,0,.1);
+}
+
+.story-card.yellow {
+    background:
+        linear-gradient(
+            145deg,
+            var(--yellow),
+            #ffc928
+        );
+
+    border: none;
+}
+
+.story-icon {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: #111;
+
+    color: var(--yellow);
+
+    font-size: 27px;
+
+    margin-bottom: 28px;
+}
+
+.story-card.yellow .story-icon {
+    background: rgba(0,0,0,.88);
+
+    color: var(--yellow);
+}
+
+.story-card h3 {
+    font-size: 27px;
+
+    font-weight: 900;
+
+    margin-bottom: 15px;
+}
+
+.story-card p {
+    color: #666;
+
+    line-height: 1.85;
+
+    margin: 0;
+}
+
+.story-card.yellow p {
+    color: #222;
+}
+
+.story-number {
+    position: absolute;
+
+    top: 25px;
+    right: 28px;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    color: #aaa;
+
+    letter-spacing: 1px;
+}
+
+.story-card.yellow .story-number {
+    color: rgba(0,0,0,.5);
+}
+
+.scroll-hint {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #999;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    margin-top: 10px;
+}
+
+.scroll-hint i {
+    color: var(--orange);
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-section {
+    background: var(--black2);
+
+    color: #fff;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.about-section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    right: -250px;
+    top: -150px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(245,180,0,.12),
+            transparent 68%
+        );
+}
+
+.about-image {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.4);
+}
+
+.about-image img {
+    width: 100%;
+    height: 590px;
+
+    object-fit: cover;
+
+    transition: .7s;
+}
+
+.about-image:hover img {
+    transform: scale(1.05);
+}
+
+.about-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,.55),
+            transparent 45%
+        );
+}
+
+.about-badge {
+    position: absolute;
+
+    z-index: 2;
+
+    bottom: 22px;
+    left: 22px;
+
+    padding: 14px 19px;
+
+    border-radius: 15px;
+
+    background: var(--yellow);
+
+    color: #111;
+
+    font-size: 12px;
+
+    font-weight: 900;
+}
+
+.about-content {
+    position: relative;
+
+    z-index: 2;
+}
+
+.about-content p {
+    color: #aaa;
+
+    line-height: 1.9;
+
+    margin-bottom: 19px;
+}
+
+.about-content .section-title {
+    color: #fff;
+}
+
+.motic-definition {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 10px 15px;
+
+    border-radius: 30px;
+
+    background: rgba(245,180,0,.08);
+
+    border: 1px solid rgba(245,180,0,.2);
+
+    color: var(--yellow);
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: .8px;
+
+    margin-bottom: 20px;
+}
+
+.quote-box {
+    border-left: 4px solid var(--yellow);
+
+    padding: 19px 22px;
+
+    margin-top: 28px;
+
+    background: rgba(255,255,255,.04);
+
+    border-radius: 0 15px 15px 0;
+}
+
+.quote-box strong {
+    color: var(--yellow);
+
+    font-size: 19px;
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.services-section {
+    background: #f7f7f7;
+}
+
+.service-card {
+    height: 100%;
+
+    padding: 34px;
+
+    background: #fff;
+
+    border-radius: 24px;
+
+    border: 1px solid #eee;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: .4s;
+}
+
+.service-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--yellow),
+            var(--orange)
+        );
+}
+
+.service-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    right: -60px;
+    bottom: -60px;
+
+    border-radius: 50%;
+
+    background: rgba(245,180,0,.07);
+
+    transition: .4s;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 25px 55px rgba(0,0,0,.1);
+}
+
+.service-card:hover::after {
+    transform: scale(1.7);
+}
+
+.service-number {
+    color: var(--orange);
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 18px;
+}
+
+.service-icon {
+    width: 64px;
+    height: 64px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: rgba(245,180,0,.12);
+
+    color: var(--orange);
+
+    font-size: 27px;
+
+    margin-bottom: 23px;
+
+    transition: .35s;
+}
+
+.service-card:hover .service-icon {
+    background: #111;
+
+    color: var(--yellow);
+
+    transform: rotate(-5deg);
+}
+
+.service-card h3 {
+    font-size: 21px;
+
+    font-weight: 900;
+
+    line-height: 1.3;
+
+    margin-bottom: 13px;
+}
+
+.service-card p {
+    color: #777;
+
+    line-height: 1.75;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   FLAGSHIP EVENT
+========================================================= */
+
+.event-section {
+    background: var(--black);
+
+    color: #fff;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.event-section::before {
+    content: "50+";
+
+    position: absolute;
+
+    right: -20px;
+    top: -55px;
+
+    font-size: 250px;
+
+    font-weight: 900;
+
+    color: rgba(255,255,255,.025);
+
+    line-height: 1;
+}
+
+.event-section::after {
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    left: -250px;
+    bottom: -250px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,101,0,.16),
+            transparent 70%
+        );
+}
+
+.event-content {
+    position: relative;
+
+    z-index: 2;
+}
+
+.event-content .section-title {
+    color: #fff;
+}
+
+.event-content .section-description {
+    color: #999;
+}
+
+.event-tag {
+    display: inline-flex;
+
+    padding: 9px 15px;
+
+    border-radius: 50px;
+
+    background: rgba(245,180,0,.09);
+
+    border: 1px solid rgba(245,180,0,.3);
+
+    color: var(--yellow);
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 20px;
+}
+
+.event-subtitle {
+    color: var(--yellow);
+
+    font-size: 18px;
+
+    line-height: 1.5;
+
+    font-weight: 900;
+
+    margin-bottom: 20px;
+}
+
+.event-details {
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+.event-detail {
+    padding: 18px;
+
+    background: #151515;
+
+    border: 1px solid #292929;
+
+    border-radius: 16px;
+
+    transition: .3s;
+}
+
+.event-detail:hover {
+    border-color: rgba(245,180,0,.4);
+
+    transform: translateY(-3px);
+}
+
+.event-detail i {
+    color: var(--yellow);
+
+    display: block;
+
+    font-size: 20px;
+
+    margin-bottom: 9px;
+}
+
+.event-detail strong {
+    display: block;
+
+    color: #fff;
+
+    font-size: 12px;
+
+    margin-bottom: 3px;
+}
+
+.event-detail span {
+    color: #777;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* EVENT VISUAL CARD */
+
+.event-visual {
+    position: relative;
+
+    z-index: 2;
+}
+
+.event-card {
+    position: relative;
+
+    padding: 38px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #252525,
+            #101010
+        );
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.45);
+
+    overflow: hidden;
+}
+
+.event-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    right: -110px;
+    top: -100px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(245,180,0,.22),
+            transparent 70%
+        );
+}
+
+.event-card-icon {
+    position: relative;
+
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background: var(--yellow);
+
+    color: #111;
+
+    font-size: 34px;
+
+    margin-bottom: 24px;
+}
+
+.event-card h3 {
+    position: relative;
+
+    font-size: 31px;
+
+    line-height: 1.1;
+
+    font-weight: 900;
+
+    margin-bottom: 16px;
+}
+
+.event-card p {
+    color: #999;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+}
+
+.event-trophy {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    background: rgba(245,180,0,.08);
+
+    border: 1px solid rgba(245,180,0,.18);
+
+    color: var(--yellow);
+
+    font-weight: 900;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats {
+    padding: 72px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--yellow),
+            #ffc928
+        );
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.stats::after {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    right: -180px;
+    top: -180px;
+
+    background: rgba(255,255,255,.15);
+}
+
+.stat {
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+
+    padding: 10px;
+}
+
+.stat h3 {
+    font-size: 45px;
+
+    font-weight: 900;
+
+    letter-spacing: -2px;
+
+    margin: 0;
+}
+
+.stat p {
+    font-size: 11px;
+
+    font-weight: 900;
+
+    margin: 6px 0 0;
+
+    text-transform: uppercase;
+
+    letter-spacing: .5px;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.features-section {
+    background: #fff;
+}
+
+.feature-card {
+    height: 100%;
+
+    padding: 32px;
+
+    border-radius: 22px;
+
+    background: var(--cream);
+
+    border: 1px solid #f0dfb0;
+
+    transition: .35s;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+
+    background: #fff;
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.08);
+}
+
+.feature-card i {
+    display: inline-flex;
+
+    width: 58px;
+    height: 58px;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background: #111;
+
+    color: var(--yellow);
+
+    font-size: 25px;
+
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 20px;
+
+    font-weight: 900;
+
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: #777;
+
+    line-height: 1.75;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   PARTNER
+========================================================= */
+
+.partner-section {
+    background:
+        linear-gradient(
+            135deg,
+            #0d0d0d,
+            #222
+        );
+
+    color: #fff;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.partner-section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    right: -250px;
+    top: -200px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(245,180,0,.1),
+            transparent 70%
+        );
+}
+
+.partner-section .container {
+    position: relative;
+
+    z-index: 2;
+}
+
+.partner-section .section-title {
+    color: #fff;
+}
+
+.partner-section > .container p {
+    color: #aaa;
+
+    line-height: 1.85;
+}
+
+.partner-list {
+    list-style: none;
+
+    padding: 0;
+
+    margin: 30px 0;
+}
+
+.partner-list li {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    color: #ddd;
+
+    margin-bottom: 17px;
+
+    line-height: 1.65;
+
+    font-size: 14px;
+}
+
+.partner-list i {
+    color: var(--yellow);
+
+    font-size: 17px;
+
+    margin-top: 2px;
+}
+
+.partner-box {
+    padding: 42px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1d1d1d,
+            #121212
+        );
+
+    border: 1px solid #303030;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.3);
+}
+
+.partner-icon {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--yellow);
+
+    color: #111;
+
+    border-radius: 18px;
+
+    font-size: 28px;
+
+    margin-bottom: 22px;
+}
+
+.partner-box h3 {
+    font-size: 28px;
+
+    font-weight: 900;
+
+    margin-bottom: 12px;
+}
+
+.partner-box p {
+    color: #999;
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   SPONSORS
+========================================================= */
+
+.motic-sponsors {
+    padding: 110px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffaf0,
+            #fff,
+            #fff4d8
+        );
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.motic-sponsors::before {
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    left: -250px;
+    top: -230px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(245,180,0,.13),
+            transparent 70%
+        );
+}
+
+.motic-sponsors .container {
+    position: relative;
+
+    z-index: 2;
+}
+
+.motic-sponsors h2 {
+    font-size: clamp(36px,5vw,55px);
+
+    font-weight: 900;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 15px;
+}
+
+.motic-sponsors h2 span {
+    color: var(--yellow);
+}
+
+.motic-sponsors-intro {
+    max-width: 650px;
+
+    margin: 0 auto 50px;
+
+    color: #777;
+
+    line-height: 1.8;
+}
+
+.motic-sponsor-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 25px;
+
+    max-width: 1050px;
+
+    margin: auto;
+}
+
+.motic-sponsor-card {
+    min-height: 240px;
+
+    padding: 28px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #fff;
+
+    border: 1px solid #eee;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 12px 40px rgba(0,0,0,.06);
+
+    transition: .4s;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.motic-sponsor-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--yellow),
+            var(--orange)
+        );
+}
+
+.motic-sponsor-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 25px 55px rgba(245,180,0,.17);
+
+    border-color: #f0d78c;
+}
+
+.sponsor-logo {
+    width: 180px;
+    height: 105px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #111;
+
+    border-radius: 18px;
+
+    margin-bottom: 20px;
+
+    color: #fff;
+
+    font-size: 22px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.08);
+}
+
+.sponsor-mark {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--yellow);
+
+    color: #111;
+
+    margin-bottom: 8px;
+
+    font-size: 22px;
+}
+
+.motic-sponsor-card > span {
+    color: #111;
+
+    font-size: 18px;
+
+    font-weight: 900;
+
+    margin-bottom: 5px;
+}
+
+.motic-sponsor-card small {
+    color: #999;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.gallery-section {
+    background: #f7f7f7;
+}
+
+.gallery-card {
+    position: relative;
+
+    height: 320px;
+
+    overflow: hidden;
+
+    border-radius: 23px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.08);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: .6s;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    padding: 23px;
+
+    color: #fff;
+
+    font-weight: 900;
+
+    font-size: 14px;
+
+    background:
+        linear-gradient(
+            transparent 35%,
+            rgba(0,0,0,.9)
+        );
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta-section {
+    padding: 115px 0;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #090909,
+            #191919
+        );
+}
+
+.cta-section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 550px;
+    height: 550px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%,-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(245,180,0,.11),
+            transparent 67%
+        );
+}
+
+.cta-section .container {
+    position: relative;
+
+    z-index: 2;
+}
+
+.cta-section h2 {
+    color: #fff;
+
+    font-size: clamp(37px,5vw,61px);
+
+    font-weight: 900;
+
+    letter-spacing: -2px;
+}
+
+.cta-section p {
+    max-width: 700px;
+
+    margin: 18px auto 30px;
+
+    color: #999;
+
+    line-height: 1.8;
+}
+
+.contact-details {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 30px;
+}
+
+.contact-pill {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 12px 17px;
+
+    border-radius: 50px;
+
+    color: #ddd;
+
+    background: rgba(255,255,255,.05);
+
+    border: 1px solid rgba(255,255,255,.09);
+
+    font-size: 12px;
+}
+
+.contact-pill i {
+    color: var(--yellow);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.motic-footer {
+    background: #050505;
+
+    color: #fff;
+
+    padding-top: 82px;
+}
+
+.motic-footer-logo {
+    display: inline-block;
+
+    color: #fff;
+
+    font-size: 31px;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+
+    margin-bottom: 18px;
+}
+
+.motic-footer-logo span {
+    color: var(--yellow);
+}
+
+.motic-footer-description {
+    color: #777;
+
+    line-height: 1.8;
+
+    max-width: 390px;
+
+    margin-bottom: 25px;
+
+    font-size: 14px;
+}
+
+.motic-footer-contact {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.motic-footer-contact div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: #999;
+
+    font-size: 13px;
+}
+
+.motic-footer-contact i {
+    color: var(--yellow);
+
+    width: 18px;
+}
+
+.motic-footer-social {
+    display: flex;
+
+    gap: 9px;
+
+    margin-top: 25px;
+}
+
+.motic-footer-social a {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #161616;
+
+    color: #888;
+
+    border-radius: 50%;
+
+    transition: .3s;
+}
+
+.motic-footer-social a:hover {
+    background: var(--yellow);
+
+    color: #111;
+
+    transform: translateY(-4px);
+}
+
+.motic-footer-title {
+    color: #fff;
+
+    font-size: 16px;
+
+    font-weight: 900;
+
+    margin-bottom: 25px;
+
+    position: relative;
+
+    padding-bottom: 12px;
+}
+
+.motic-footer-title::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 32px;
+    height: 3px;
+
+    background: var(--yellow);
+
+    border-radius: 10px;
+}
+
+.motic-footer-links {
+    list-style: none;
+
+    padding: 0;
+}
+
+.motic-footer-links li {
+    margin-bottom: 13px;
+}
+
+.motic-footer-links a {
+    color: #777;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    font-size: 13px;
+
+    transition: .3s;
+}
+
+.motic-footer-links a:hover {
+    color: var(--yellow);
+
+    padding-left: 5px;
+}
+
+.motic-footer-links i {
+    color: var(--yellow);
+
+    font-size: 10px;
+}
+
+.motic-footer-cta {
+    padding: 28px;
+
+    background: #121212;
+
+    border: 1px solid #242424;
+
+    border-radius: 20px;
+}
+
+.motic-footer-fire {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--yellow);
+
+    color: #111;
+
+    font-size: 21px;
+
+    border-radius: 12px;
+
+    margin-bottom: 18px;
+}
+
+.motic-footer-cta h4 {
+    font-size: 20px;
+
+    font-weight: 900;
+
+    margin-bottom: 10px;
+}
+
+.motic-footer-cta p {
+    color: #777;
+
+    line-height: 1.7;
+
+    font-size: 13px;
+}
+
+.motic-whatsapp {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 15px;
+
+    padding: 12px;
+
+    border: 1px solid #303030;
+
+    border-radius: 10px;
+
+    color: #aaa;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    transition: .3s;
+}
+
+.motic-whatsapp:hover {
+    border-color: var(--yellow);
+
+    color: var(--yellow);
+}
+
+.motic-footer-bottom {
+    margin-top: 60px;
+
+    padding: 25px 0;
+
+    border-top: 1px solid #1d1d1d;
+}
+
+.motic-footer-bottom p {
+    margin: 0;
+
+    color: #555;
+
+    font-size: 12px;
+}
+
+.motic-footer-bottom strong {
+    color: var(--yellow);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1199px) {
+
+    .nav-link {
+        margin: 0 2px;
+    }
+
+    .hero-event-card {
+        width: 330px;
+    }
+
+}
+
+
+@media (max-width: 991px) {
+
+    .navbar {
+        min-height: 75px;
+    }
+
+    .navbar-collapse {
+        padding: 15px 0 20px;
+    }
+
+    .navbar-nav {
+        padding: 8px 0;
+    }
+
+    .nav-link {
+        margin: 2px 0;
+    }
+
+    .hero {
+        min-height: auto;
+    }
+
+    .hero-content {
+        padding-top: 145px;
+        padding-bottom: 100px;
+    }
+
+    .hero-event-wrap {
+        justify-content: flex-start;
+
+        padding-top: 0;
+
+        padding-bottom: 120px;
+    }
+
+    .hero-event-card {
+        width: 100%;
+
+        max-width: 470px;
+
+        transform: none;
+    }
+
+    .event-details {
+        grid-template-columns: 1fr;
+    }
+
+    .motic-sponsor-list {
+        grid-template-columns: repeat(3,1fr);
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .hero h1 {
+        font-size: 47px;
+
+        letter-spacing: -2.5px;
+    }
+
+    .hero-text {
+        font-size: 14px;
+    }
+
+    .hero-bottom {
+        display: none;
+    }
+
+    .hero-content {
+        padding-bottom: 70px;
+    }
+
+    .hero-event-wrap {
+        padding-bottom: 70px;
+    }
+
+    .hero-event-card {
+        max-width: none;
+    }
+
+    .section {
+        padding: 78px 0;
+    }
+
+    .section-title {
+        letter-spacing: -1.5px;
+    }
+
+    .about-image img {
+        height: 390px;
+    }
+
+    .story-card {
+        min-height: 340px;
+
+        padding: 30px;
+    }
+
+    .story-card h3 {
+        font-size: 24px;
+    }
+
+    .motic-sponsor-list {
+        grid-template-columns: 1fr;
+
+        max-width: 400px;
+    }
+
+    .gallery-card {
+        height: 270px;
+    }
+
+    .contact-details {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .contact-pill {
+        justify-content: center;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-primary,
+    .hero-outline {
+        width: 100%;
+    }
+
+    .hero-event-card {
+        padding: 23px;
+    }
+
+    .hero-event-card h3 {
+        font-size: 24px;
+    }
+
+    .event-card {
+        padding: 28px;
+    }
+
+    .event-card h3 {
+        font-size: 26px;
+    }
+
+    .stat h3 {
+        font-size: 36px;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY / MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        transition: none !important;
+
+        animation: none !important;
+    }
+
+}
+
+.motic-sponsors {
+    padding: 90px 0;
+    background: linear-gradient(135deg, #fffaf0 0%, #ffffff 50%, #fff3d6 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.motic-section-label {
+    display: inline-block;
+    color: #f5b400;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.motic-sponsors h2 {
+    color: #fff;
+    font-size: 44px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.motic-sponsors h2 span {
+    color: #f5b400;
+}
+
+.motic-sponsors-intro {
+    max-width: 650px;
+    margin: 0 auto 45px;
+    color: #aaa;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* Sponsor cards */
+
+.motic-sponsor-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.motic-sponsor-card {
+    min-height: 120px;
+    padding: 30px 25px;
+    border: 1px solid rgba(245, 180, 0, 0.25);
+    border-radius: 18px;
+    background: grey;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.motic-sponsor-card:hover {
+    transform: translateY(-8px);
+    border-color: grey;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+    background: blue;
+}
+
+.sponsor-logo {
+    width: 150px;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: yellow;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 18px;
+}
+
+.sponsor-logo img {
+    max-width: 100%;
+    max-height: 65px;
+    object-fit: contain;
+}
+
+.motic-sponsor-card span {
+    color: brown;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .motic-sponsors {
+        padding: 70px 20px;
+    }
+
+    .motic-sponsors h2 {
+        font-size: 34px;
+    }
+
+    .motic-sponsor-list {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .motic-sponsor-card {
+        min-height: 170px;
+    }
+}
+.spacer {
+    height: 80px;
+}
+    style="
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.85),
+            rgba(0, 0, 0, 0.45)
+        ),
+        url('{% static 'assets/image/choma/img_5.png' %}');
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+"
+    #moticNavbar .nav-link {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 10px 18px;
+    margin: 0 3px;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+/* Hover */
+#moticNavbar .nav-link:hover {
+    color: #f5b400;
+}
+
+/* Active link */
+#moticNavbar .nav-link.active {
+    color: #f5b400;
+}
+
+/* Gold underline */
+#moticNavbar .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 3px;
+    height: 2px;
+    background: #f5b400;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+/* Show underline on hover */
+#moticNavbar .nav-link:hover::after,
+#moticNavbar .nav-link.active::after {
+    transform: scaleX(1);
+}
+
+</style>
+
 </head>
 
 
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
      HEADER
-========================= -->
+===================================================== -->
 
-<header class="motic-header">
+<header class="motic-header" id="moticHeader">
 
     <div class="container-xl">
 
         <nav class="navbar navbar-expand-lg">
 
             <a href="{% url 'index' %}" class="brand">
+
                 Motic<span>Africa</span>
+
+                <small>
+                    IGNITING AFRICA'S BBQ CULTURE
+                </small>
+
             </a>
+
 
             <button
                 class="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#moticNavbar">
+                data-bs-target="#moticNavbar"
+                aria-controls="moticNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
 
                 <i class="bi bi-list text-white fs-2"></i>
 
             </button>
 
-            <div class="collapse navbar-collapse" id="moticNavbar">
 
-                <ul class="navbar-nav ms-auto align-items-lg-center">
+<div class="collapse navbar-collapse" id="moticNavbar">
 
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#home">Home</a>
-                    </li>
+    <ul class="navbar-nav ms-auto align-items-lg-center">
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'about' %}">
-                            About
-                        </a>
-                    </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="#home">
+                Home
+            </a>
+        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'teams' %}">
-                            Teams
-                        </a>
-                    </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">
+                About
+            </a>
+        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'battle' %}">
-                            Battle
-                        </a>
-                    </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'battle' %}">
+                Battle
+            </a>
+        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'gallery' %}">
-                            Gallery
-                        </a>
-                    </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'gallery' %}">
+                Gallery
+            </a>
+        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'tickets' %}">
-                            Tickets
-                        </a>
-                    </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">
+                Contact
+            </a>
+        </li>
+
+    </ul>
+
+</div>
 
 
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'contact' %}">
-                            Contact
-                        </a>
-                    </li>
 
-                </ul>
 
-                {% if user.is_authenticated %}
 
-    <span class="text-white me-3">
-         {{ user.username }}
-    </span>
-
-    <a href="{% url 'logout' %}" class="btn-motic ms-2">
-        Logout
-    </a>
-
-{% else %}
-
-    <a href="{% url 'login' %}" class="btn-motic">
-        Login
-    </a>
-
-    <a href="{% url 'register' %}" class="btn-motic ms-2">
-        Register
-    </a>
-
-{% endif %}
-
-            </div>
 
         </nav>
 
@@ -894,58 +2914,185 @@
 <main>
 
 
-<!-- =========================
+<!-- =====================================================
      HERO
-========================= -->
+===================================================== -->
 
 <section id="home" class="hero">
 
+    <div class="hero-grid"></div>
+
     <div class="container">
 
-        <div class="hero-content" data-aos="fade-up">
+        <div class="row align-items-center">
 
-            <div class="hero-badge">
+            <div class="col-lg-7">
 
-                <i class="bi bi-fire"></i>
+                <div class="hero-content"
+                     data-aos="fade-up">
 
-                KENYA'S ULTIMATE CHOMA EXPERIENCE
+                    <div class="hero-badge">
+
+                        <i class="bi bi-fire"></i>
+
+                        MOTIC AFRICA · NAIROBI, KENYA
+
+                    </div>
+
+
+                    <h1>
+
+                        Igniting Adventure and
+
+                        <span>
+                            Africa's BBQ Culture.
+                        </span>
+
+                    </h1>
+
+
+                    <p class="hero-text">
+
+                        Premium, family-friendly experiences
+                        that bring together adventure, food,
+                        music and culture — powered by the
+                        spirit of African flame culture.
+
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+                        <a href="#services"
+                           class="hero-primary">
+
+                            Explore Our Services
+
+                            <i class="bi bi-arrow-right"></i>
+
+                        </a>
+
+
+                        <a href="#event"
+                           class="hero-outline">
+
+                            Discover The Battle
+
+                            <i class="bi bi-fire"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
 
             </div>
 
-            <h1>
 
-                The Heat Is
-                <span>Coming.</span>
+            <div class="col-lg-5">
 
-            </h1>
+                <div class="hero-event-wrap"
+                     data-aos="fade-left"
+                     data-aos-delay="200">
 
-            <p class="hero-text">
+                    <div class="hero-event-card">
 
-                Welcome to the Kenya Mega Choma Battle —
-                where nyama choma, music, culture, competition
-                and unforgettable experiences come together.
+                        <div class="hero-event-top">
 
-            </p>
+                            <div class="hero-fire">
 
-            <div class="hero-buttons">
+                                <i class="bi bi-fire"></i>
 
-                <a href="{% url 'team_registration' %}"
-                   class="hero-primary">
+                            </div>
 
-                    Register Your Team
+                            <span class="hero-event-label">
+                                2026 FLAGSHIP EVENT
+                            </span>
 
-                    <i class="bi bi-arrow-right"></i>
+                        </div>
 
-                </a>
 
-                <a href="{% url 'tickets' %}"
-                   class="hero-outline">
+                        <h3>
+                            Kenya Mega
+                            Choma Battle
+                        </h3>
 
-                    <i class="bi bi-ticket-perforated"></i>
 
-                    Get Tickets
+                        <p>
 
-                </a>
+                            50+ grills. Pro pitmasters.
+                            Live entertainment. Food.
+                            Culture. One massive BBQ battle.
+
+                        </p>
+
+
+                        <div class="hero-event-details">
+
+                            <div class="hero-event-detail">
+
+                                <i class="bi bi-calendar3"></i>
+
+                                <strong>
+                                    12 DEC 2026
+                                </strong>
+
+                                <span>
+                                    Saturday
+                                </span>
+
+                            </div>
+
+
+                            <div class="hero-event-detail">
+
+                                <i class="bi bi-geo-alt"></i>
+
+                                <strong>
+                                    KICC
+                                </strong>
+
+                                <span>
+                                    Nairobi, Kenya
+                                </span>
+
+                            </div>
+
+
+                            <div class="hero-event-detail">
+
+                                <i class="bi bi-trophy"></i>
+
+                                <strong>
+                                    50+ GRILLS
+                                </strong>
+
+                                <span>
+                                    Battle
+                                </span>
+
+                            </div>
+
+
+                            <div class="hero-event-detail">
+
+                                <i class="bi bi-people"></i>
+
+                                <strong>
+                                    5,000+
+                                </strong>
+
+                                <span>
+                                    Meat lovers
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 
@@ -961,35 +3108,23 @@
             <div class="hero-info">
 
                 <div class="hero-info-item">
-
-                    <i class="bi bi-calendar-event"></i>
-
-                    <span>Coming Soon</span>
-
+                    <i class="bi bi-compass"></i>
+                    Adventure
                 </div>
 
                 <div class="hero-info-item">
-
-                    <i class="bi bi-geo-alt"></i>
-
-                    <span>Kenya</span>
-
-                </div>
-
-                <div class="hero-info-item">
-
-                    <i class="bi bi-music-note-beamed"></i>
-
-                    <span>Live Music</span>
-
-                </div>
-
-                <div class="hero-info-item">
-
                     <i class="bi bi-fire"></i>
+                    BBQ Culture
+                </div>
 
-                    <span>Choma Battle</span>
+                <div class="hero-info-item">
+                    <i class="bi bi-music-note-beamed"></i>
+                    Music
+                </div>
 
+                <div class="hero-info-item">
+                    <i class="bi bi-people"></i>
+                    Community
                 </div>
 
             </div>
@@ -1001,29 +3136,181 @@
 </section>
 
 
-<!-- =========================
-     ABOUT
-========================= -->
+<!-- =====================================================
+     JOURNEY / MISSION / VISION
+===================================================== -->
 
-<section class="section about-section">
+<section class="section journey-section">
+
+    <div class="container">
+
+        <div class="center-heading">
+
+            <span class="section-label">
+                Our Story
+            </span>
+
+            <h2 class="section-title">
+
+                From Backyard Choma
+
+                <span>
+                    To A National Vision.
+                </span>
+
+            </h2>
+
+            <p class="section-description">
+
+                A journey built around food, community,
+                adventure and the people who keep
+                African flame culture alive.
+
+            </p>
+
+        </div>
+
+
+        <div class="story-track"
+             id="storyTrack">
+
+
+            <!-- JOURNEY -->
+
+            <article class="story-card"
+                     data-aos="fade-up">
+
+                <span class="story-number">
+                    01 / JOURNEY
+                </span>
+
+                <div class="story-icon">
+
+                    <i class="bi bi-fire"></i>
+
+                </div>
+
+                <h3>
+                    Why Motic Africa Started
+                </h3>
+
+                <p>
+
+                    We noticed that Nyama Choma,
+                    while being Kenya's most loved food,
+                    had no national platform to celebrate
+                    the people behind it.
+
+                </p>
+
+            </article>
+
+
+            <!-- MISSION -->
+
+            <article class="story-card yellow"
+                     data-aos="fade-up"
+                     data-aos-delay="100">
+
+                <span class="story-number">
+                    02 / MISSION
+                </span>
+
+                <div class="story-icon">
+
+                    <i class="bi bi-bullseye"></i>
+
+                </div>
+
+                <h3>
+                    Our Mission
+                </h3>
+
+                <p>
+
+                    To elevate Kenyan culinary talent,
+                    create economic opportunities for
+                    grill masters, and build Kenya's
+                    biggest annual BBQ culture festival.
+
+                </p>
+
+            </article>
+
+
+            <!-- VISION -->
+
+            <article class="story-card"
+                     data-aos="fade-up"
+                     data-aos-delay="200">
+
+                <span class="story-number">
+                    03 / VISION
+                </span>
+
+                <div class="story-icon">
+
+                    <i class="bi bi-eye"></i>
+
+                </div>
+
+                <h3>
+                    Our Vision
+                </h3>
+
+                <p>
+
+                    To become East Africa's leading BBQ
+                    and cultural events brand by 2028 —
+                    hosting events in Nairobi, Mombasa,
+                    Kisumu, Tanzania, Uganda and Rwanda.
+
+                </p>
+
+            </article>
+
+        </div>
+
+
+        <div class="scroll-hint">
+
+            <i class="bi bi-arrow-left-right"></i>
+
+            Swipe or drag to explore our story
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section id="about"
+         class="section about-section">
 
     <div class="container">
 
         <div class="row align-items-center g-5">
 
-            <div class="col-lg-6" data-aos="fade-right">
+            <div class="col-lg-6"
+                 data-aos="fade-right">
 
                 <div class="about-image">
 
                     <img
-                        src="{% static 'assets/img/choma/img.png' %}"
-                        alt="Kenya Mega Choma Battle">
+                        src="{% static 'assets/img/choma/img_1.png' %}"
+                        alt="Motic Africa BBQ culture"
+                        loading="lazy">
 
-                    <div class="image-badge">
+                    <div class="about-badge">
 
                         <i class="bi bi-fire me-2"></i>
 
-                        THE BATTLE IS ON
+                        Africa's BBQ Culture
 
                     </div>
 
@@ -1032,48 +3319,88 @@
             </div>
 
 
-            <div class="col-lg-6" data-aos="fade-left">
+            <div class="col-lg-6"
+                 data-aos="fade-left">
 
                 <div class="about-content">
 
                     <span class="section-label">
-                        About MoticAfrica
+                        About Us
                     </span>
 
                     <h2 class="section-title">
 
-                        Where Kenya
-                        <span style="color:#f5b400;">
-                            Comes Together.
+                        Motic
+                        <span>
+                            Africa.
                         </span>
 
                     </h2>
 
+
+                    <div class="motic-definition">
+
+                        <i class="bi bi-stars"></i>
+
+                        MODERN TECHNIQUES · INNOVATION · CULTURE
+
+                    </div>
+
+
                     <p>
 
-                        MoticAfrica brings people together through
-                        food, culture, entertainment, competition
-                        and unforgettable experiences.
+                        Motic Africa is a dynamic adventure,
+                        events, culture and lifestyle company
+                        based in Nairobi, Kenya — dedicated to
+                        celebrating authentic African flame
+                        culture, community and entertainment
+                        through premium, family-friendly
+                        experiences that bring together
+                        adventure, food, music and culture.
 
                     </p>
 
+
                     <p>
 
-                        The Kenya Mega Choma Battle is more than
-                        a food event. It is a celebration of
-                        Kenyan talent, community, music and
-                        the amazing culture that makes Kenya unique.
+                        We started as a small team passionate
+                        about travelling for fun. During camping
+                        trips we introduced a barbecue grill
+                        competition between teams — and what
+                        began as backyard Choma meet-ups
+                        supporting local grill masters has
+                        grown into a national vision:
+                        Kenya's biggest, most authentic
+                        celebration of Nyama Choma.
 
                     </p>
 
-                    <a href="{% url 'about' %}"
-                       class="register-btn">
 
-                        Discover MoticAfrica
+                    <p>
 
-                        <i class="bi bi-arrow-right"></i>
+                        The name MOTIC stands for
+                        <strong style="color:#f5b400;">
+                            Modern Techniques, Innovation and Culture
+                        </strong>
+                        — we blend traditional African culinary
+                        heritage with modern event experiences.
 
-                    </a>
+                    </p>
+
+
+                    <div class="quote-box">
+
+                        <strong>
+                            “Igniting Adventure and Africa's BBQ Culture.”
+                        </strong>
+
+                        <br>
+
+                        <span style="color:#aaa;">
+                            Come taste the heat, feel the heat!
+                        </span>
+
+                    </div>
 
                 </div>
 
@@ -1086,28 +3413,33 @@
 </section>
 
 
-<!-- =========================
-     EXPERIENCE
-========================= -->
+<!-- =====================================================
+     SERVICES
+===================================================== -->
 
-<section class="section experience-section">
+<section id="services"
+         class="section services-section">
 
     <div class="container">
 
         <div class="center-heading">
 
             <span class="section-label">
-                The Experience
+                What We Do
             </span>
 
             <h2 class="section-title">
-                Something For Everyone
+
+                Our
+                <span>Services.</span>
+
             </h2>
 
             <p class="section-description">
 
-                Come for the choma.
-                Stay for the experience.
+                Creating experiences that connect
+                brands, communities, talent and
+                African culture.
 
             </p>
 
@@ -1117,20 +3449,30 @@
         <div class="row g-4">
 
 
-            <div class="col-lg-3 col-md-6"
+            <div class="col-lg-6"
                  data-aos="fade-up">
 
-                <div class="experience-card">
+                <div class="service-card">
 
-                    <div class="experience-icon">
-                        <i class="bi bi-fire"></i>
+                    <div class="service-number">
+
                     </div>
 
-                    <h3>Choma Battle</h3>
+                    <div class="service-icon">
+                        <i class="bi bi-megaphone"></i>
+                    </div>
+
+                    <h3>
+                        Brand Activation &
+                        Experiential Marketing
+                    </h3>
 
                     <p>
-                        Watch teams bring their skills to
-                        the grill and compete for the title.
+
+                        Immersive, on-the-ground campaigns
+                        that put your brand directly in front
+                        of the crowd.
+
                     </p>
 
                 </div>
@@ -1138,20 +3480,30 @@
             </div>
 
 
-            <div class="col-lg-3 col-md-6"
+            <div class="col-lg-6"
                  data-aos="fade-up"
                  data-aos-delay="100">
 
-                <div class="experience-card">
+                <div class="service-card">
 
-                    <div class="experience-icon">
-                        <i class="bi bi-music-note-beamed"></i>
+                    <div class="service-number">
+
                     </div>
 
-                    <h3>Live Music</h3>
+                    <div class="service-icon">
+                        <i class="bi bi-calendar-event"></i>
+                    </div>
+
+                    <h3>
+                        Large-Scale Cultural
+                        Events & Festivals
+                    </h3>
 
                     <p>
-                        Enjoy music, DJs on live performances
+
+                        End-to-end production of festivals
+                        and adventure experiences at
+                        national scale.
 
                     </p>
 
@@ -1160,49 +3512,67 @@
             </div>
 
 
-            <div class="col-lg-3 col-md-6"
+            <div class="col-lg-6"
                  data-aos="fade-up"
-                 data-aos-delay="200">
+                 data-aos-delay="150">
 
-                <div class="experience-card">
+                <div class="service-card">
 
-                    <div class="experience-icon">
-                        <i class="bi bi-emoji-smile"></i>
+                    <div class="service-number">
+
                     </div>
 
-                    <h3>Entertainment</h3>
-
-                    <p>
-                        Games, activities and experiences
-                        designed for an unforgettable day.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-lg-3 col-md-6"
-                 data-aos="fade-up"
-                 data-aos-delay="300">
-
-                <div class="experience-card">
-
-                    <div class="experience-icon">
+                    <div class="service-icon">
                         <i class="bi bi-people"></i>
                     </div>
 
-                    <h3>Community</h3>
+                    <h3>
+                        Corporate Team Building
+                        & BBQ Experiences
+                    </h3>
 
                     <p>
-                        Meet people, connect with brands
-                        and celebrate Kenya together.
+
+                        Grill-based team building days
+                        that bring corporate teams together
+                        around fire and food.
+
                     </p>
 
                 </div>
 
             </div>
 
+
+            <div class="col-lg-6"
+                 data-aos="fade-up"
+                 data-aos-delay="200">
+
+                <div class="service-card">
+
+                    <div class="service-number">
+
+                    </div>
+
+                    <div class="service-icon">
+                        <i class="bi bi-person-badge"></i>
+                    </div>
+
+                    <h3>
+                        Talent Management for
+                        Grill Masters & Chefs
+                    </h3>
+
+                    <p>
+
+                        Discovering, managing and promoting
+                        Kenya's top grilling talent.
+
+                    </p>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -1211,66 +3581,121 @@
 </section>
 
 
-<!-- =========================
-     BATTLE
-========================= -->
+<!-- =====================================================
+     FLAGSHIP EVENT
+===================================================== -->
 
-<section class="section battle-section">
+<section id="event"
+         class="section event-section">
 
     <div class="container">
 
-        <div class="row align-items-center g-5">
+        <div class="row align-items-center g-5"
+            style="background-image: url('{% static 'assets/img/choma/img_4.png' %}');
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;">
 
             <div class="col-lg-7"
                  data-aos="fade-right">
 
-                <div class="battle-content">
+                <div class="event-content">
 
-                    <span class="section-label">
-                        The Main Event
+                    <span class="event-tag">
+                        🔥 FLAGSHIP EVENT
                     </span>
+
 
                     <h2 class="section-title">
 
-                        Who Makes The
-                        <span style="color:#f5b400;">
-                            Best Choma?
+                        Kenya Mega
+
+                        <span>
+                            Choma Battle.
                         </span>
 
                     </h2>
 
+
+                    <h3 class="event-subtitle">
+
+                        50 Grills Competition —
+                        Golden Mshikaki Trophy
+                        Up for Grabs!
+
+                    </h3>
+
+
                     <p class="section-description">
 
-                        The grill is hot. The competition is real.
-                        Teams will bring their skills, creativity
-                        and passion to the Kenya Mega Choma Battle.
+                        Kenya's biggest choma cook-off,
+                        and the first-ever open-field
+                        barbecue battle: 50+ corporate
+                        grills, 50+ business exhibitors,
+                        live music, family fun and
+                        5,000+ meat lovers.
 
                     </p>
 
 
-                    <ul class="battle-list">
+                    <p class="section-description"
+                       style="margin-top:15px;">
 
-                        <li>
-                            <i class="bi bi-check-circle-fill"></i>
-                            Live cooking competition
-                        </li>
+                        Corporate teams go head-to-head
+                        with pro pitmasters for the
+                        Golden Mshikaki Trophy and
+                        a mega cash prize.
 
-                        <li>
-                            <i class="bi bi-check-circle-fill"></i>
-                            Amazing food and flavours
-                        </li>
+                    </p>
 
-                        <li>
-                            <i class="bi bi-check-circle-fill"></i>
-                            Live entertainment
-                        </li>
 
-                        <li>
-                            <i class="bi bi-check-circle-fill"></i>
-                            Prizes and recognition
-                        </li>
+                    <div class="event-details">
 
-                    </ul>
+                        <div class="event-detail">
+
+                            <i class="bi bi-calendar3"></i>
+
+                            <strong>
+                                WHEN
+                            </strong>
+
+                            <span>
+                                Sat, 12 December 2026
+                            </span>
+
+                        </div>
+
+
+                        <div class="event-detail">
+
+                            <i class="bi bi-geo-alt"></i>
+
+                            <strong>
+                                WHERE
+                            </strong>
+
+                            <span>
+                                KICC, Nairobi, Kenya
+                            </span>
+
+                        </div>
+
+
+                        <div class="event-detail">
+
+                            <i class="bi bi-clock"></i>
+
+                            <strong>
+                                HOURS
+                            </strong>
+
+                            <span>
+                                Gates 10 AM · Awards 6 PM
+                            </span>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
@@ -1280,28 +3705,279 @@
             <div class="col-lg-5"
                  data-aos="fade-left">
 
-                <div class="battle-card">
+                <div class="event-visual">
 
-                    <div class="battle-icon">
-                        <i class="bi bi-fire"></i>
+                    <div class="event-card">
+
+                        <div class="event-card-icon">
+
+                            <i class="bi bi-trophy-fill"></i>
+
+                        </div>
+
+
+                        <h3>
+                            The Golden
+                            Mshikaki Trophy
+                        </h3>
+
+
+                        <p>
+
+                            Fifty-plus grills.
+                            Corporate teams.
+                            Pro pitmasters.
+                            One unforgettable
+                            BBQ battle.
+
+                        </p>
+
+
+                        <div class="event-trophy">
+
+                            <i class="bi bi-trophy-fill"></i>
+
+                            Trophy + Mega Cash Prize
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<div class="spacer"></div>
+
+<!-- =====================================================
+     STATS
+===================================================== -->
+
+<section class="stats">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-6 col-lg-3">
+
+                <div class="stat">
+
+                    <h3>
+                        50+
+                    </h3>
+
+                    <p>
+                        Corporate Grills
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+                <div class="stat">
+
+                    <h3>
+                        50+
+                    </h3>
+
+                    <p>
+                        Business Exhibitors
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+                <div class="stat">
+
+                    <h3>
+                        5K+
+                    </h3>
+
+                    <p>
+                        Meat Lovers Expected
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+                <div class="stat">
+
+                    <h3>
+                        70%
+                    </h3>
+
+                    <p>
+                        Youth & Hustler Slots
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<div class="spacer"></div>
+
+<!-- =====================================================
+
+     PARTNER WITH US
+===================================================== -->
+
+<section id="partner"
+         class="section partner-section">
+
+   <div class="container"
+     style="background-image: url('{% static 'assets/img/choma/img_5.png' %}');
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;">
+
+         <div class="row align-items-center g-5"
+            >
+
+            <div class="col-lg-7">
+
+                <span class="section-label">
+                    Partner With Us
+                </span>
+
+                <h2 class="section-title">
+
+                    Align With A
+
+                    <span>
+                        Growing Movement.
+                    </span>
+
+                </h2>
+
+
+                <p>
+
+                    We're not just organizing events —
+                    we're building a movement.
+                    Here's what partners get.
+
+                </p>
+
+
+                <ul class="partner-list">
+
+                    <li>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        Premium brand association at
+                        Kenya's most iconic venue —
+                        KICC.
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        Authentic cultural relevance —
+                        Choma is Kenya's national
+                        celebration food.
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        Access to 5,000+ urban families
+                        and youth aged 18–45.
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        Proven marketing reach across
+                        TikTok, Instagram and WhatsApp.
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        Professional execution —
+                        security, licensing and permits
+                        fully handled.
+
+                    </li>
+
+                </ul>
+
+
+                <a href="{% url 'contact' %}"
+                   class="btn-motic">
+
+                    Get In Touch
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+            <div class="col-lg-5">
+
+                <div class="partner-box">
+
+                    <div class="partner-icon">
+
+                        <i class="bi bi-handshake"></i>
+
                     </div>
 
                     <h3>
-                        The Grill Is Calling
+                        Build Something Together
                     </h3>
 
                     <p>
 
-                        Gather your team, bring your
-                        skills and get ready for the
-                        ultimate choma experience.
+                        Partner with Motic Africa and
+                        connect your brand with food,
+                        culture, entertainment,
+                        families and Kenya's
+                        growing BBQ movement.
 
                     </p>
 
-                    <a href="{% url 'team_registration' %}"
-                       class="register-btn">
+                    <a href="{% url 'contact' %}"
+                       class="hero-primary">
 
-                        Enter The Battle
+                        Partner With This Event
 
                         <i class="bi bi-arrow-right"></i>
 
@@ -1318,54 +3994,77 @@
 </section>
 
 
-<!-- =========================
-     STATS
-========================= -->
+<!-- =====================================================
+     SPONSORS / PARTNERS
+===================================================== -->
 
-<section class="stats">
+<section class="motic-sponsors">
 
-    <div class="container">
+    <div class="container text-center">
 
-        <div class="row g-4">
+        <span class="section-label">
+            OUR SPONSORS & PARTNERS
+        </span>
 
-            <div class="col-6 col-lg-3">
-                <div class="stat">
-                    <h3>01</h3>
-                    <p>Epic Event</p>
+        <h2>
+
+            Brands That
+            <span>
+                Believe.
+            </span>
+
+        </h2>
+
+
+        <p class="motic-sponsors-intro">
+
+            We welcome brands that believe in
+            Kenyan culture, community, food,
+            entertainment and unforgettable
+            experiences.
+
+        </p>
+         <div class="motic-sponsor-list">
+
+            <!-- Safaricom -->
+            <a href="#" class="motic-sponsor-card">
+                <div class="sponsor-logo">
+                    <img src="{% static 'assets/img/safaricom.png' %}"
+                         alt="Safaricom">
                 </div>
-            </div>
+                <span>Safaricom</span>
+            </a>
 
-            <div class="col-6 col-lg-3">
-                <div class="stat">
-                    <h3>100+</h3>
-                    <p>Participants</p>
+            <!-- Tusker -->
+            <a href="#" class="motic-sponsor-card">
+                <div class="sponsor-logo">
+                    <img src="{% static 'assets/img/tusker.png' %}"
+                         alt="Tusker">
                 </div>
-            </div>
+                <span>Tusker</span>
+            </a>
 
-            <div class="col-6 col-lg-3">
-                <div class="stat">
-                    <h3>∞</h3>
-                    <p>Memories</p>
+            <!-- Naivas -->
+            <a href="#" class="motic-sponsor-card">
+                <div class="sponsor-logo">
+                    <img src="{% static 'assets/img/naivas.png' %}"
+                         alt="Naivas">
                 </div>
-            </div>
-
-            <div class="col-6 col-lg-3">
-                <div class="stat">
-                    <h3>24/7</h3>
-                    <p>Good Vibes</p>
-                </div>
-            </div>
+                <span>Naivas</span>
+            </a>
 
         </div>
+
+
 
     </div>
 
 </section>
 
 
-<!-- =========================
-     GALLERY PREVIEW
-========================= -->
+<!-- =====================================================
+     GALLERY
+===================================================== -->
 
 <section class="section gallery-section">
 
@@ -1374,17 +4073,24 @@
         <div class="center-heading">
 
             <span class="section-label">
-                Experience
+                Motic Africa
             </span>
 
             <h2 class="section-title">
-                Moments From MoticAfrica
+
+                Come Taste The Heat.
+
+                <span>
+                    Feel The Heat.
+                </span>
+
             </h2>
 
             <p class="section-description">
 
-                Food, culture, people and unforgettable
-                moments — all in one place.
+                Adventure, food, music, culture
+                and the people who make every
+                Motic Africa experience memorable.
 
             </p>
 
@@ -1393,16 +4099,20 @@
 
         <div class="row g-4">
 
+
             <div class="col-md-4">
 
                 <div class="gallery-card">
 
                     <img
                         src="{% static 'assets/img/choma/img_8.png' %}"
-                        alt="Kenya Mega Choma Battle">
+                        alt="Motic Africa live entertainment"
+                        loading="lazy">
 
                     <div class="gallery-overlay">
-                        Live Performance🎤
+
+                        Live Music & Entertainment
+
                     </div>
 
                 </div>
@@ -1416,10 +4126,13 @@
 
                     <img
                         src="{% static 'assets/img/choma/img_9.png' %}"
-                        alt="MoticAfrica event">
+                        alt="Motic Africa BBQ culture"
+                        loading="lazy">
 
                     <div class="gallery-overlay">
-                       Kenyan Vibes🔥🔥
+
+                        African BBQ Culture
+
                     </div>
 
                 </div>
@@ -1433,11 +4146,13 @@
 
                     <img
                         src="{% static 'assets/img/choma/img_7.png' %}"
-                        alt="Mega Choma Battle">
+                        alt="Kenya Mega Choma Battle"
+                        loading="lazy">
 
                     <div class="gallery-overlay">
-                        Win golden Trophy
-                        and Cash💰💰
+
+                        Golden Mshikaki Trophy
+
                     </div>
 
                 </div>
@@ -1450,9 +4165,9 @@
         <div class="text-center mt-5">
 
             <a href="{% url 'gallery' %}"
-               class="register-btn">
+               class="btn-motic">
 
-                View Full Gallery
+                Explore Gallery
 
                 <i class="bi bi-images"></i>
 
@@ -1465,182 +4180,89 @@
 </section>
 
 
-<!-- =========================
-     CTA
-========================= -->
+<!-- =====================================================
+     CONTACT CTA
+===================================================== -->
 
 <section class="cta-section">
 
     <div class="container"
+
          data-aos="zoom-in">
 
         <span class="section-label">
-            Ready?
+            Let's Connect
         </span>
 
+
         <h2>
-            Ready For The Battle?
+
+            Come Taste The Heat,
+
+            <br>
+
+            Feel The Heat.
+
         </h2>
+
 
         <p>
 
-            Bring your team, bring your appetite
-            and get ready for an unforgettable
-            Kenyan experience.
+            Questions about our services,
+            our flagship event, or a partnership?
+            Reach us directly.
 
         </p>
 
-        <div class="d-flex justify-content-center
-                    flex-wrap gap-3">
 
-            <a href="{% url 'team_registration' %}"
-               class="hero-primary">
+        <div class="contact-details">
 
-                Register Your Team
+            <div class="contact-pill">
 
-                <i class="bi bi-arrow-right"></i>
+                <i class="bi bi-telephone-fill"></i>
 
-            </a>
+                +254 796 004 220
 
-            <a href="{% url 'tickets' %}"
-               class="hero-outline">
-
-                Get Tickets
-
-                <i class="bi bi-ticket-perforated"></i>
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
+            </div>
 
 
-<!-- =========================
-     FAQ
-========================= -->
+            <div class="contact-pill">
 
-<section class="section faq-section">
+                <i class="bi bi-telephone-fill"></i>
 
-    <div class="container">
+                +254 108 631 702
 
-        <div class="center-heading">
+            </div>
 
-            <span class="section-label">
-                Have Questions?
-            </span>
 
-            <h2 class="section-title">
-                Frequently Asked Questions
-            </h2>
+            <div class="contact-pill">
 
-            <p class="section-description">
+                <i class="bi bi-envelope-fill"></i>
 
-                Everything you need to know about
-                the Kenya Mega Choma Battle.
+                moticafrica@gmail.com
 
-            </p>
+            </div>
+
+
+            <div class="contact-pill">
+
+                <i class="bi bi-envelope-fill"></i>
+
+                moticafricabusiness@gmail.com
+
+            </div>
 
         </div>
 
 
-        <div class="faq">
+        <a href="{% url 'contact' %}"
+           class="btn-motic">
 
+            Get In Touch
 
-            <div class="faq-item">
+            <i class="bi bi-arrow-right"></i>
 
-                <button class="faq-question">
-
-                    <span>
-                        What is the Kenya Mega Choma Battle?
-                    </span>
-
-                    <i class="bi bi-chevron-down"></i>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    The Kenya Mega Choma Battle is a
-                    MoticAfrica event combining food,
-                    music, entertainment, culture and
-                    a live choma competition.
-
-                </div>
-
-            </div>
-
-
-            <div class="faq-item">
-
-                <button class="faq-question">
-
-                    <span>
-                        Can I register my team?
-                    </span>
-
-                    <i class="bi bi-chevron-down"></i>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    Yes. Use the Register Your Team
-                    button to submit your team details.
-
-                </div>
-
-            </div>
-
-
-            <div class="faq-item">
-
-                <button class="faq-question">
-
-                    <span>
-                        Can I attend without competing?
-                    </span>
-
-                    <i class="bi bi-chevron-down"></i>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    Yes. Visitors can attend, enjoy the
-                    food, entertainment, music and
-                    overall event experience.
-
-                </div>
-
-            </div>
-
-
-            <div class="faq-item">
-
-                <button class="faq-question">
-
-                    <span>
-                        When and where will the event happen?
-                    </span>
-
-                    <i class="bi bi-chevron-down"></i>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    The official event date and location
-                    will be published by MoticAfrica.
-
-                </div>
-
-            </div>
-
-
-        </div>
+        </a>
 
     </div>
 
@@ -1650,19 +4272,16 @@
 </main>
 
 
-
-
-<!-- ======================================================
-     MOTICAFRICA FOOTER
-====================================================== -->
-
-<footer id="footer" class="footer motic-footer">
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+<div class="spacer"></div>
+<footer class="motic-footer">
 
     <div class="container">
 
         <div class="row gy-5">
 
-            <!-- BRAND -->
 
             <div class="col-lg-4 col-md-6">
 
@@ -1673,52 +4292,85 @@
 
                 </a>
 
+
                 <p class="motic-footer-description">
 
-                    MoticAfrica brings food, culture, music,
-                    entertainment and competition together
-                    through the Kenya Mega Choma Battle.
+                    Motic Africa is a Nairobi-based
+                    adventure, events, culture and
+                    lifestyle company celebrating
+                    authentic African flame culture,
+                    community and entertainment.
 
                 </p>
+
 
                 <div class="motic-footer-contact">
 
                     <div>
+
                         <i class="bi bi-geo-alt-fill"></i>
-                        <span>Kenya</span>
+
+                        <span>
+                            Nairobi, Kenya
+                        </span>
+
                     </div>
 
+
                     <div>
+
                         <i class="bi bi-telephone-fill"></i>
-                        <span>0796 004 220</span>
+
+                        <span>
+                            +254 796 004 220
+                        </span>
+
                     </div>
 
+
                     <div>
+
                         <i class="bi bi-envelope-fill"></i>
-                        <span>info@moticafrica.com</span>
+
+                        <span>
+                            moticafrica@gmail.com
+                        </span>
+
                     </div>
 
                 </div>
 
 
-                <!-- SOCIAL -->
-
                 <div class="motic-footer-social">
 
-                    <a href="#" aria-label="X">
-                        <i class="bi bi-twitter-x"></i>
+                    <a href="#"
+                       aria-label="TikTok">
+
+                        <i class="bi bi-tiktok"></i>
+
                     </a>
 
-                    <a href="#" aria-label="Facebook">
-                        <i class="bi bi-facebook"></i>
-                    </a>
+                    <a href="#"
+                       aria-label="Instagram">
 
-                    <a href="#" aria-label="Instagram">
                         <i class="bi bi-instagram"></i>
+
                     </a>
 
-                    <a href="#" aria-label="LinkedIn">
-                        <i class="bi bi-linkedin"></i>
+                    <a href="#"
+                       aria-label="Facebook">
+
+                        <i class="bi bi-facebook"></i>
+
+                    </a>
+
+                    <a href="https://wa.me/254796004220"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="WhatsApp">
+
+                        <i class="bi bi-whatsapp"></i>
+
                     </a>
 
                 </div>
@@ -1726,34 +4378,40 @@
             </div>
 
 
-            <!-- QUICK LINKS -->
-
             <div class="col-lg-2 col-md-6">
 
                 <h4 class="motic-footer-title">
                     Quick Links
                 </h4>
 
+
                 <ul class="motic-footer-links">
 
                     <li>
-                        <a href="{% url 'index' %}">
+                        <a href="#home">
                             <i class="bi bi-chevron-right"></i>
                             Home
                         </a>
                     </li>
 
                     <li>
-                        <a href="{% url 'about' %}">
+                        <a href="#about">
                             <i class="bi bi-chevron-right"></i>
                             About
                         </a>
                     </li>
 
                     <li>
-                        <a href="{% url 'teams' %}">
+                        <a href="#services">
                             <i class="bi bi-chevron-right"></i>
-                            Teams
+                            Services
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#event">
+                            <i class="bi bi-chevron-right"></i>
+                            Flagship Event
                         </a>
                     </li>
 
@@ -1776,48 +4434,47 @@
             </div>
 
 
-            <!-- EVENT -->
-
             <div class="col-lg-3 col-md-6">
 
                 <h4 class="motic-footer-title">
-                    Mega Choma Battle
+                    Kenya Mega Choma Battle
                 </h4>
+
 
                 <ul class="motic-footer-links">
 
                     <li>
-                        <a href="{% url 'teams' %}">
+                        <a href="#event">
                             <i class="bi bi-chevron-right"></i>
-                            Teams
+                            50+ Grills
                         </a>
                     </li>
 
                     <li>
-                        <a href="{% url 'battle' %}">
+                        <a href="#event">
                             <i class="bi bi-chevron-right"></i>
-                            Choma Battle
+                            Golden Mshikaki Trophy
                         </a>
                     </li>
 
                     <li>
-                        <a href="{% url 'tickets' %}">
+                        <a href="#event">
                             <i class="bi bi-chevron-right"></i>
-                            Get Tickets
+                            KICC Nairobi
                         </a>
                     </li>
 
                     <li>
-                        <a href="{% url 'gallery' %}">
+                        <a href="#event">
                             <i class="bi bi-chevron-right"></i>
-                            Gallery
+                            12 December 2026
                         </a>
                     </li>
 
                     <li>
-                        <a href="{% url 'contact' %}">
+                        <a href="#partner">
                             <i class="bi bi-chevron-right"></i>
-                            Contact Us
+                            Partner With Us
                         </a>
                     </li>
 
@@ -1825,8 +4482,6 @@
 
             </div>
 
-
-            <!-- CTA -->
 
             <div class="col-lg-3 col-md-6">
 
@@ -1838,23 +4493,20 @@
 
                     </div>
 
+
                     <h4>
-                        Ready for the Battle?
+                        Come Taste The Heat
                     </h4>
 
+
                     <p>
-                        Get your ticket and experience
-                        Kenya's ultimate Choma celebration.
+
+                        Questions about Motic Africa,
+                        the Kenya Mega Choma Battle
+                        or partnerships?
+
                     </p>
 
-                    <a href="{% url 'tickets' %}"
-                       class="motic-footer-button">
-
-                        Get Your Ticket
-
-                        <i class="bi bi-arrow-right"></i>
-
-                    </a>
 
                     <a href="https://wa.me/254796004220"
                        target="_blank"
@@ -1876,8 +4528,6 @@
     </div>
 
 
-    <!-- BOTTOM -->
-
     <div class="motic-footer-bottom">
 
         <div class="container">
@@ -1887,18 +4537,31 @@
                 <div class="col-md-6">
 
                     <p>
+
                         © {% now "Y" %}
-                        <strong>MoticAfrica</strong>.
+
+                        <strong>
+                            Motic Africa
+                        </strong>.
+
                         All Rights Reserved.
+
                     </p>
 
                 </div>
 
+
                 <div class="col-md-6 text-md-end">
 
                     <p>
-                        Kenya Mega Choma Battle
-                        <span class="footer-fire">🔥</span>
+
+                        Igniting Adventure and
+                        Africa's BBQ Culture.
+
+                        <span>
+                            🔥
+                        </span>
+
                     </p>
 
                 </div>
@@ -1912,417 +4575,9 @@
 </footer>
 
 
-<!-- ======================================================
-     FOOTER CSS
-====================================================== -->
-
-<style>
-
-.motic-footer {
-
-    background: #0d0d0d;
-
-    color: #fff;
-
-    padding-top: 80px;
-
-}
-
-
-/* LOGO */
-
-.motic-footer-logo {
-
-    display: inline-block;
-
-    color: #fff;
-
-    font-size: 32px;
-
-    font-weight: 900;
-
-    text-decoration: none;
-
-    letter-spacing: -1px;
-
-    margin-bottom: 20px;
-
-}
-
-.motic-footer-logo span {
-
-    color: #f5b400;
-
-}
-
-
-.motic-footer-description {
-
-    color: #888;
-
-    line-height: 1.8;
-
-    max-width: 390px;
-
-    margin-bottom: 25px;
-
-}
-
-
-/* CONTACT */
-
-.motic-footer-contact {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 12px;
-
-}
-
-.motic-footer-contact div {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    color: #aaa;
-
-}
-
-.motic-footer-contact i {
-
-    color: #f5b400;
-
-    width: 18px;
-
-}
-
-
-/* SOCIAL */
-
-.motic-footer-social {
-
-    display: flex;
-
-    gap: 10px;
-
-    margin-top: 25px;
-
-}
-
-.motic-footer-social a {
-
-    width: 40px;
-
-    height: 40px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background: #1a1a1a;
-
-    color: #aaa;
-
-    text-decoration: none;
-
-    transition: .3s;
-
-}
-
-.motic-footer-social a:hover {
-
-    background: #f5b400;
-
-    color: #111;
-
-    transform: translateY(-3px);
-
-}
-
-
-/* TITLES */
-
-.motic-footer-title {
-
-    color: #fff;
-
-    font-size: 17px;
-
-    font-weight: 800;
-
-    margin-bottom: 25px;
-
-    position: relative;
-
-    padding-bottom: 12px;
-
-}
-
-.motic-footer-title::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-
-    bottom: 0;
-
-    width: 35px;
-
-    height: 3px;
-
-    background: #f5b400;
-
-}
-
-
-/* LINKS */
-
-.motic-footer-links {
-
-    list-style: none;
-
-    padding: 0;
-
-    margin: 0;
-
-}
-
-.motic-footer-links li {
-
-    margin-bottom: 13px;
-
-}
-
-.motic-footer-links a {
-
-    color: #888;
-
-    text-decoration: none;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 7px;
-
-    transition: .3s;
-
-}
-
-.motic-footer-links a:hover {
-
-    color: #f5b400;
-
-    padding-left: 5px;
-
-}
-
-.motic-footer-links i {
-
-    color: #f5b400;
-
-    font-size: 11px;
-
-}
-
-
-/* CTA */
-
-.motic-footer-cta {
-
-    padding: 25px;
-
-    background: #171717;
-
-    border: 1px solid #292929;
-
-}
-
-.motic-footer-fire {
-
-    width: 45px;
-
-    height: 45px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background: #f5b400;
-
-    color: #111;
-
-    font-size: 22px;
-
-    margin-bottom: 18px;
-
-}
-
-.motic-footer-cta h4 {
-
-    font-size: 21px;
-
-    font-weight: 800;
-
-    margin-bottom: 10px;
-
-}
-
-.motic-footer-cta p {
-
-    color: #888;
-
-    line-height: 1.7;
-
-    font-size: 14px;
-
-}
-
-
-/* BUTTON */
-
-.motic-footer-button {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 10px;
-
-    background: #f5b400;
-
-    color: #111;
-
-    text-decoration: none;
-
-    padding: 13px 15px;
-
-    font-weight: 800;
-
-    margin-top: 20px;
-
-    transition: .3s;
-
-}
-
-.motic-footer-button:hover {
-
-    background: #fff;
-
-    color: #111;
-
-}
-
-
-/* WHATSAPP */
-
-.motic-whatsapp {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 8px;
-
-    margin-top: 10px;
-
-    padding: 11px;
-
-    border: 1px solid #333;
-
-    color: #aaa;
-
-    text-decoration: none;
-
-    font-weight: 600;
-
-    transition: .3s;
-
-}
-
-.motic-whatsapp:hover {
-
-    border-color: #f5b400;
-
-    color: #f5b400;
-
-}
-
-
-/* BOTTOM */
-
-.motic-footer-bottom {
-
-    margin-top: 60px;
-
-    padding: 25px 0;
-
-    border-top: 1px solid #242424;
-
-}
-
-.motic-footer-bottom p {
-
-    margin: 0;
-
-    color: #666;
-
-    font-size: 14px;
-
-}
-
-.motic-footer-bottom strong {
-
-    color: #f5b400;
-
-}
-
-.footer-fire {
-
-    font-size: 16px;
-
-}
-
-
-/* MOBILE */
-
-@media (max-width: 767px) {
-
-    .motic-footer {
-
-        padding-top: 60px;
-
-    }
-
-    .motic-footer-bottom {
-
-        text-align: center;
-
-    }
-
-}
-
-</style>
-
-
-<!-- =========================
+<!-- =====================================================
      JAVASCRIPT
-========================= -->
+===================================================== -->
 
 <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
@@ -2331,33 +4586,135 @@
 
 <script>
 
-    /* AOS */
+AOS.init({
+    duration: 850,
+    once: true,
+    offset: 80
+});
 
-    AOS.init({
-        duration: 800,
-        once: true
-    });
+
+/* =====================================================
+   HEADER SCROLL EFFECT
+===================================================== */
+
+const moticHeader =
+    document.getElementById("moticHeader");
+
+window.addEventListener("scroll", function () {
+
+    if (window.scrollY > 30) {
+
+        moticHeader.classList.add("scrolled");
+
+    } else {
+
+        moticHeader.classList.remove("scrolled");
+
+    }
+
+});
 
 
-    /* FAQ */
+/* =====================================================
+   HORIZONTAL STORY DRAG
+===================================================== */
 
-    document.querySelectorAll(".faq-question").forEach(function(button) {
+const storyTrack =
+    document.getElementById("storyTrack");
 
-        button.addEventListener("click", function() {
+let isDragging = false;
+let startX = 0;
+let startScrollLeft = 0;
 
-            const item = this.parentElement;
 
-            document.querySelectorAll(".faq-item").forEach(function(other) {
+if (storyTrack) {
 
-                if (other !== item) {
-                    other.classList.remove("open");
+    storyTrack.addEventListener(
+        "pointerdown",
+        function (event) {
+
+            isDragging = true;
+
+            storyTrack.setPointerCapture(event.pointerId);
+
+            startX = event.clientX;
+
+            startScrollLeft =
+                storyTrack.scrollLeft;
+
+        }
+    );
+
+
+    storyTrack.addEventListener(
+        "pointermove",
+        function (event) {
+
+            if (!isDragging) return;
+
+            const distance =
+                event.clientX - startX;
+
+            storyTrack.scrollLeft =
+                startScrollLeft - distance;
+
+        }
+    );
+
+
+    storyTrack.addEventListener(
+        "pointerup",
+        function () {
+
+            isDragging = false;
+
+        }
+    );
+
+
+    storyTrack.addEventListener(
+        "pointercancel",
+        function () {
+
+            isDragging = false;
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   CLOSE MOBILE NAV AFTER CLICK
+===================================================== */
+
+document
+    .querySelectorAll(".navbar-collapse .nav-link")
+    .forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                const navbar =
+                    document.getElementById("moticNavbar");
+
+                if (
+                    navbar.classList.contains("show")
+                ) {
+
+                    const collapse =
+                        bootstrap.Collapse
+                        .getInstance(navbar);
+
+                    if (collapse) {
+                        collapse.hide();
+                    }
+
                 }
 
-            });
-
-            item.classList.toggle("open");
-
-        });
+            }
+        );
 
     });
 
