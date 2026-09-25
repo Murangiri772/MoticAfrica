@@ -19,18 +19,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ============================================================
 # SECURITY
 # ============================================================
-
 SECRET_KEY = os.environ.get(
-    "SECRET_KEY",
+    "DJANGO_SECRET_KEY",
     "django-insecure-local-development-key"
 )
 
 DEBUG = False
-
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
-    ".onrender.com",
+    ".vercel.app",
 ]
 
 
@@ -215,8 +213,7 @@ LOGOUT_REDIRECT_URL = "/"
 # ============================================================
 # CSRF
 # ============================================================
-
 CSRF_TRUSTED_ORIGINS = [
-    "https://*.onrender.com",
+    "https://*.vercel.app",
 ]
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
